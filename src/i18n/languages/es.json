@@ -1,0 +1,43 @@
+{
+    "home": {
+        "banner": {
+            "title": "Contrata experiencia, compromiso y efectividad.",
+            "subtitle": "La pieza que falta en tu empresa desde 740€/mes",
+            "heading": "Pero antes, te invito a conocerme."
+        },
+        "about_me": {
+            "title": "Un experto en interacciones humanas",
+            "card_1": "Ofrezca mejores experiencias a sus clientes. Con un experto que gestione y escale el proceso completo de comunicación, de principio a fin.",
+            "card_2": "Complemente sus equipos internos con un profesional enfocado en mejorar la eficiencia de sus procesos de interacción, acercamiento y generación de nuevos clientes.",
+            "card_3": "Involucre y aproveche la tecnología y la globalización para ahorrar costos en contratación/despido. Con un profesional que le brindará el apoyo adicional que necesita, cuando lo necesite."
+        },
+        "expirience": {
+            "title": "Parte de la industria",
+            "heading_1": "Durante los ultimos años he aportado soluciones, tanto de manera directa como terciarizada. Con compañias lideres en latinoamerica, europa y el mundo.",
+            "heading_2": "Colaboraciones mediante terceros en camapañas de Prospección, soporte y contención de clientes"
+        },
+        "testimonials": {
+            "title": "Parte de las personas",
+            "heading": "La cooperación y la empatía son principios fundamentales en todo proyecto. Cualquier equipo de trabajo, por grande o pequeño que sea, merece ser feliz y escuchado, sentirse parte del viaje a la excelencia..."
+
+
+        },
+        "about_service": {
+            "title": "¿Como funciona el servicio?",
+            "step_1_title": "Agendamos una cita",
+            "step_1_text": "Nos ponemos al corriente sobre tu proyecto. Hablamos sobre la posición que necesitas cubrir, como planeas llevar a cabo esa unidad y que desafíos tienes en mente.",
+            "step_2_title": "¡Te sumas a la experiencia!",
+            "step_2_text": "Nos ponemos a punto antes de la implementación, abonas el servicio y pautamos una fecha de inicio. El servicio comienza desde la formación u onboarding y finaliza en el momento que tu decidas, sin costos agregados.",
+            "step_3_title": "Creas un entorno de trabajo más feliz",
+            "step_3_text": "¡Vives la experiencia de contar con un freelance dispuesto a dar 100% por su posición. Fortaleces tu cultura organizacional y gestionas de manera eficiente tu activo más valioso, las personas."
+        },
+
+        "footer": {
+            "link_1": "Preguntas frecuentes",
+            "link_2": "Tarifas por posicíon",
+            "link_3": "Desubscribirse del servicio",
+            "link_4": "¿Quieres desarrollar tu propia web?",
+            "link_5": "¿Tienes alguna sugerencia?"
+        }
+    }
+}

@@ -1,13 +1,29 @@
 ---
+import VideoBackground from "@components/VideoBackground.astro";
 import Layout from "../layouts/Layout.astro";
 
+import video from "@assets/videos/banner-home/banner-home.webm";
+import poster from "@assets/videos/banner-home/banner-home.webp";
+import Banner from "@components/Banner.astro";
+import LANGUAGES from "@/i18n";
+
+
+const LANG = LANGUAGES[Astro.currentLocale]?.home;
 
 ---
 
 <Layout title={import.meta.env.PUBLIC_NAME}>
 	
+    <Banner background={{video, poster}}>
 
+        <h1>{LANG.banner.title}</h1>
+        
+        <h2>{LANG.banner.subtitle}</h2>
 
+        <h3>{LANG.banner.heading}</h3>
+
+    </Banner>
+    
 
 </Layout>
 

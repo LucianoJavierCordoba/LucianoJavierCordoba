@@ -1,0 +1,30 @@
+---
+import VideoBackground from "./VideoBackground.astro";
+
+const {background = {}} = Astro.props;
+---
+
+<section class="Banner">
+
+    <VideoBackground {...background}>
+
+        <div class="Banner-content">
+
+            <slot />
+
+        </div>
+
+    </VideoBackground>
+
+</section>
+
+
+<style>
+
+    .Banner {
+        
+        .Banner-content {
+            padding: 20px;
+        }
+    }
+</style>

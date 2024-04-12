@@ -1,0 +1,81 @@
+---
+const {velocity = 1, height = 500, video, poster} = Astro.props;
+---
+
+
+<div class="Video-background">
+
+    <custom-video data-velocity={velocity}>
+        <video src={video} poster={poster.src} autoplay  muted loop />
+    </custom-video>
+
+    <div class="Video-background-content">
+
+        <slot />
+        
+    </div>
+</div>
+
+<script>
+
+    class CustomVideo extends HTMLElement {
+
+        constructor(){
+            super();
+
+            this.velocity = Number(this.getAttribute('data-velocity'));
+
+            const video = this.querySelector('video');
+
+            video.playbackRate = this.velocity;
+        }
+    }
+
+    window.customElements.define('custom-video', CustomVideo);
+</script>
+
+
+<style
+    define:vars={{
+        'video-background-height': `${height}px`,
+        'video-background-poster': `url("${poster.src}")`
+    }}
+>
+    .Video-background {
+        width: 100%;
+        height: var(--video-background-height);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        & > * {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        custom-video {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            background-image: var(--video-background-poster);
+            background-size: cover;
+
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .Video-background-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+</style>
