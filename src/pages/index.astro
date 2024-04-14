@@ -8,6 +8,9 @@ import LANGUAGES from "@/i18n/index.js";
 import Expirience from "@/components/home/Expirience.astro";
 import Testimonials from "@/components/home/Testimonials.astro";
 import AboutMe from "@/components/home/AboutMe.astro";
+import Contact from "@/components/home/Contact.astro";
+import Mark from "@/components/Mark.astro";
+import AboutService from "@/components/home/AboutService.astro";
 
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
@@ -31,6 +34,10 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
     <Expirience />
 
     <Testimonials />
+
+    <AboutService />
+
+    <Contact />
 
 </Layout>
 

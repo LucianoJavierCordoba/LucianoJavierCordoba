@@ -1,0 +1,34 @@
+---
+const {number = 0} = Astro.props;
+
+
+---
+
+<div class="Mark">
+
+    <i class="Mark-geo bi bi-geo-alt-fill">
+
+        
+    </i>
+
+    <i class={`Mark-number bi bi-${number}-circle`}></i>
+</div>
+
+
+<style>
+    .Mark {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: blue;
+
+        .Mark-geo {
+            font-size: 8em;
+            line-height: 1.3em;
+        }
+        .Mark-number {
+            font-size: 4em;
+            line-height: 0.5em;
+        }
+    }
+</style>
