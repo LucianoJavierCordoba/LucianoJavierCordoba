@@ -1,14 +1,181 @@
 ---
+import Logo from "@/assets/logo.astro";
+import { REDES } from "@/utils/RedesUtils";
+import LANGUAGES from "@/i18n/index.js";
+
+const REDES_LINKS = [
+    {
+        name: 'Whatsapp',
+        url: `https://wa.me/${REDES.whatsapp}`,
+        bs_icon: 'bi-whatsapp',
+        color: '#1f9e5c'
+    },
+    {
+        name: 'Instagram',
+        url: REDES.instagram,
+        bs_icon: 'bi-instagram',
+        color: 'linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7)'
+    },
+    {
+        name: 'Facebook',
+        url: REDES.facebook,
+        bs_icon: 'bi-facebook',
+        color: '#0866ff'
+    },
+    {
+        name: 'Linkedin',
+        url: REDES.linkedin,
+        bs_icon: 'bi-linkedin',
+        color: '#0077b5'
+    }
+];
+
+const LANG = LANGUAGES.get(Astro.currentLocale)?.footer;
+
+const FOOTER_LINKS = [
+    {
+        text: LANG.link_1,//Preguntas frecuentes
+        url: '/preguntas-frecuentes'
+    },
+    {
+        text: LANG.link_2,//Tarifas por posicíon
+        url: '/tarifas'
+    },
+    {
+        text: LANG.link_3,//Desubscribirse del servicio
+        url: ''
+    },
+    {
+        text: LANG.link_4,//¿Quieres desarrollar tu propia web?
+        url: ''
+    },
+    {
+        text: LANG.link_5,//¿Tienes alguna sugerencia?
+        url: ''
+    },
+]
 ---
 
-<footer>
+<footer class="Footer">
+
+    <section class="container">
+
+        <ul class="Footer-links">
+            {
+                FOOTER_LINKS.map(({url, text}) => {
+
+                    return <li>
+                        <a href={url}>{text}</a>
+                    </li>
+                })
+            }  
+        </ul>
+
+        <div class="Footer-redes-content">
+
+            <Logo width="170px" height="100px"/>
+
+            <ul class="Footer-redes">
+                {
+                    REDES_LINKS.map(({url, name, bs_icon, color}) => {
+
+                        return <li>
+                            <a href={url} title={name}>
+                                <i class={`bi ${bs_icon}`} style={{color}}/>
+                            </a>
+                        </li>
+                    })
+                }  
+            </ul>
+        </div>
+
+    </section>
+
+    <div class="Footer-copyright">
+        <p>{import.meta.env.PUBLIC_COPYRIGHT}</p>
+    </div>
 
 </footer>
 
 <style>
+    :global(:root) {
 
-    .footer {
+    }
+    :global([data-theme="dark"]) {
 
+        --footer-bg: #aec4dc;
+    }
+    :global([data-theme="light"]) {
+
+        --footer-bg: #004b9b;
+    }
+
+    .Footer {
+        padding-block: 50px 10px;
+        background-color: var(--footer-bg);
+
+        section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .Footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+
+            a {
+                display: block;
+                text-decoration: none;
+                font-size: 18px;
+                color: #fff;
+                text-shadow: 0px 0px 2px #000000;
+                transition: font-size 0.4s;
+                line-height: 22px;
+            }
+            a:hover {
+                font-size: 20px;
+            }
+        }
+
+        .Footer-redes-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+            .Footer-redes {
+                padding-inline: 20px;
+                display: flex;
+                gap: 40px;
+                list-style: none;
+    
+                a {
+                    text-decoration: none;
+                    font-size: 22px;
+
+                    & i:before {
+                        transition: transform 0.4s;
+                        color: #fff;
+                        filter: drop-shadow(0px 0px 1px #00000070);
+                    }
+                    &:hover i:before {
+                        transform: scale3d(1.1, 1.1, 1);
+                    }
+                }
+                
+            }
+        }
+
+        .Footer-copyright {
+            padding-top: 20px;
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+        }
     }
     
 </style>

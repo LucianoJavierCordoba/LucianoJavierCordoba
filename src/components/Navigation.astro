@@ -1,2 +1,83 @@
 ---
+
+const LINKS = [
+	{
+		name: 'Inicio',
+		url: '/'
+	},
+	{
+		name: 'Servicios',
+		url: '/servicios'
+	},
+	{
+		name: 'Tarifas',
+		url: '/tarifas'
+	},
+	{
+		name: 'Preguntas frecuentes',
+		url: '/preguntas-frecuentes'
+	},
+]
 ---
+
+<nav class="Navigation navbar navbar-expand-lg">
+  	<div class="container">
+
+		<a class="navbar-brand" href="/">
+			<slot name="logo" />
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="Navigation-content collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				{
+					LINKS.map(({name, url}) => {
+
+						return <li class="nav-item">
+							<a class="nav-link" href={url}>{name}</a>
+						</li>
+					})
+				}
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<style>
+	:global(:root) {
+
+		--navigation-border-top-color: #007077;
+	}
+	:global([data-theme="dark"]) {
+
+		--navigation-bg: #fff;
+		--navigation-shadow-color: #00000072;
+	}
+	:global([data-theme="light"]) {
+
+		--navigation-bg: #fff;
+		--navigation-shadow-color: #00000072;
+	}
+
+	.Navigation {
+		position: relative;
+		z-index: 5000;
+		height: var(--nav-height, initial);
+		border-top: 3px solid var(--navigation-border-top-color);
+		background-color: var(--navigation-bg);
+		box-shadow: 0px 0px 10px 0px var(--navigation-shadow-color);
+
+		.Navigation-content {
+			justify-content: end;
+
+			ul {
+
+				gap: 20px;
+			}
+		}
+	}
+</style>

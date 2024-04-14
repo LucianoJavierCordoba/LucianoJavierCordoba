@@ -1,0 +1,111 @@
+---
+import card_1 from "@assets/videos/card-1/card-1.webm";
+import card_2 from "@assets/videos/card-2/card-2.webm";
+import card_3 from "@assets/videos/card-3/card-3.webm";
+import lucho from "@assets/Luciano-cordoba.png";
+import LANGUAGES from "@/i18n/index.js";
+import CardVideo from "../CardVideo.astro";
+import SIZES from "@/utils/16x9-Resolution.js";
+
+
+const LANG = LANGUAGES.get(Astro.currentLocale)?.about_me;
+
+const name = import.meta.env.PUBLIC_NAME;
+
+const CARDS = [
+    {
+        video: card_1,
+        poster: '',
+        text: LANG.card_1,
+    },
+    {
+        video: card_2,
+        poster: '',
+        text: LANG.card_2,
+    },
+    {
+        video: card_3,
+        poster: '',
+        text: LANG.card_3,
+    }
+]
+---
+
+
+<section class="About-me container-fluid">
+
+    <div class="About-me-content container">
+
+        <img class="About-me-image" src={lucho.src} alt={`Foto de ${name}`} >
+    
+        <h2 class="About-me-title">{LANG.title}</h2>
+    
+        <div class="About-me-cards">
+
+            {
+                CARDS.map(({video, poster, text}) => {
+
+                    return <div class="About-me-card">
+                        <video src={video} poster={poster} muted autoplay loop {...SIZES['144p']} />
+
+                        <p>{text}</p>
+                    </div>
+                })
+            }
+
+        </div>
+    </div>
+
+</section>
+
+<style>
+
+    .About-me {
+        padding-block: 100px;
+        background-color: #fff;
+        
+        .About-me-content {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            align-items: center;
+            
+        }
+
+        .About-me-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            filter: drop-shadow(0px 0px 10px #0000004d);
+        }
+
+        .About-me-title {
+            font-size: 60px;
+            font-weight: bolder;
+        }
+
+        .About-me-cards {
+            display: flex;
+            gap: 20px;
+
+            .About-me-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+
+                video {
+                    object-fit: cover;
+                    border-radius: 5px;
+                }
+
+                p {
+                    text-align: center;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,37 @@
+---
+const { video, poster, width = 460, height = 270} = Astro.props;
+---
+
+<custom-card-video>
+
+    
+
+    <slot />
+
+</custom-card-video>
+
+<script>
+
+    class CustomCardVideo extends HTMLElement {
+
+        constructor(){
+            super();
+
+
+        }
+    }
+
+</script>
+
+<style>
+    custom-card-video {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        video {
+            object-fit: cover;
+        }
+    }
+</style>

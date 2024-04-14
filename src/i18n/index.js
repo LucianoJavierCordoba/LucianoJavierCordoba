@@ -1,6 +1,9 @@
+import es from "./languages/es/index.js";
 
-import es from "./languages/es.json";
+const LANG = new Map();
 
-export default {
-    es
-}
+LANG.set('es', es);
+
+
+
+export default LANG;

@@ -1,0 +1,76 @@
+---
+import {GROUP_1, GROUP_2} from "@assets/logos/index.js";
+
+import LANGUAGES from "@/i18n/index.js";
+
+const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
+---
+
+<section class="Expirience container">
+
+    <h2 class="Expirience-title">{LANG.title}</h2>
+
+    <p class="Expirience-heading">{LANG.heading_1}</p>
+
+    <div class="Expirience-icons">
+        {
+            GROUP_1.map(({name, src}) => {
+
+                return <img src={src} title={name} alt={`Logo de ${name}`} />
+            })
+        }
+    </div>
+
+    <p class="Expirience-heading">{LANG.heading_2}</p>
+
+    <div class="Expirience-icons">
+        {
+            GROUP_2.map(({name, src}) => {
+
+                return <img src={src} title={name} alt={`Logo de ${name}`} />
+            })
+        }
+    </div>
+
+</section>
+
+<style>
+    .Expirience {  
+        margin-block: 100px; 
+        padding-block: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        box-shadow: 0px 0px 10px 0px #00000070;
+
+        .Expirience-title {
+            font-weight: bold;
+            margin: 0;
+        }
+        .Expirience-heading {
+            font-size: 20px;
+            text-align: center;
+            text-wrap: balance;
+            max-width: 80ch;
+        }
+
+        .Expirience-icons {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            img {
+                width: 120px;
+                object-fit: scale-down;
+            }
+        }
+    }
+
+</style>

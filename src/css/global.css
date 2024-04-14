@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --nav-height: 85px;
+}
+
+h1, h2, h3, h4 {
+    font-family: Rift-Soft, Arial, Helvetica, sans-serif;
+}
