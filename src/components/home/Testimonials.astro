@@ -1,9 +1,4 @@
 ---
-import miguel from "@assets/testimonials/miguel.jpeg";
-import javier from "@assets/testimonials/javier.jpeg";
-import ana from "@assets/testimonials/ana.jpeg";
-import laura from "@assets/testimonials/laura.jpeg";
-
 import LANGUAGES from "@/i18n/index.js";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.testimonials;
@@ -11,19 +6,15 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.testimonials;
 const TESTIMONIALS = [
     {
         ...LANG.testimonial_1,
-        img: laura.src
+        img: null
     },
     {
         ...LANG.testimonial_2,
-        img: javier.src
+        img: null
     },
     {
         ...LANG.testimonial_3,
-        img: ana.src
-    },
-    {
-        ...LANG.testimonial_4,
-        img: miguel.src
+        img: null
     },
 ]
 ---
@@ -41,13 +32,20 @@ const TESTIMONIALS = [
 
                 return <div class="Testimonial-card">
 
-                    <img src={img} alt={`Foto de ${name}`} />
+                    {img && <img src={img} alt={`Foto de ${name}`} />}
 
                     <h5>{name}</h5>
 
                     <span>{job}</span>
 
-                    <p>{text}</p>
+                    <article>
+                    {
+                        text?.map(value => {
+
+                            return <p>{value}</p>
+                        })
+                    }
+                    </article>
                 </div>
             })
         }
@@ -85,18 +83,22 @@ const TESTIMONIALS = [
         }
 
         .Testimonials-content {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(200px, 1fr));
-            gap: 30px;
-            place-items: center;
 
-            
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+
             .Testimonial-card {
                 padding: 20px;
+
+                flex-basis: 250px;
+                flex-grow: 1;
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+
+                gap: 20px;
                 border-radius: 20px;
                 box-shadow: 0px 0px 10px 0px #00000020;
 
@@ -107,16 +109,15 @@ const TESTIMONIALS = [
                     object-position: top;
                     border-radius: 50%;
                 }
-
                 h5 {
                     font-size: 24px;
                     margin: 0;
                 }
-
                 span {
                     font-size: 18px;
                     color: #5a5a5a;
                     font-weight: 200;
+                    text-align: center;
                 }
             }
         }

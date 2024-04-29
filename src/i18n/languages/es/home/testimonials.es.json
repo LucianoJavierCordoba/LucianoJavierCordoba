@@ -1,0 +1,32 @@
+{
+    "title": "Parte de las personas",
+
+    "heading": "La cooperación y la empatía son principios fundamentales en todo proyecto. Cualquier equipo de trabajo, por grande o pequeño que sea, merece ser feliz y escuchado, sentirse parte del viaje a la excelencia...",
+
+    "testimonial_1": {
+        "name": "Cecilia Allende",
+        "job": "Bhoopy Force - Inside Sales Developer",
+        "text": [
+            "Trabajar con Luciano ayudó a que mi trabajo sea mucho más fácil y de más calidad. Es una persona que siempre te va a brindar todas las herramientas que esten a su alcance para ayudarte y que da el 100% en cada proyecto.",
+            "Nunca tuvo problema en explicarme las cosas varias veces cuando no las entendía, o en preguntarme si estaba todo bien con mi trabajo. Sin dudas esto hizo que yo trabajara en un ambiente más relajado y gane confianza en el ámbito profesional."
+        ]
+    },
+    "testimonial_2": {
+        "name": "Leo Magallanes",
+        "job": "Ekalon - Redactor y Copywriting",
+        "text": [
+            "Luciano tiene una gran energía y siempre está predispuesto. Es de aquellas personas que te hace sentir que puedes confiar en él para lo que sea que necesites.",
+            "3 conocimientos esenciales que, a mi parecer, deben existir en todo equipo.",
+            "Sin dudas Luciano lo tiene y, lo que es más importante, sabe contagiar, generar y liderar un equipo desde esta base."
+        ]
+    },
+    "testimonial_3": {
+        "name": "Javier Castillo",
+        "job": "Tu Media Naranja - Asesor de Experiencia de clientes",
+        "text": [
+            "Trabajar con Luciano fue un gran alivio en lo personal, es una persona que entiende todo muy rapido y siempre está listo para hacer su aporte en el momento justo. Un generador de buenos resultados. Un gran empleado y un destacado compañero."
+        ]
+    }
+}
+
+

@@ -1,0 +1,66 @@
+---
+import LANGUAGES from "@/i18n/index.js";
+
+const locale = Astro.currentLocale;
+
+const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
+---
+
+
+<section class="Question-and-anwsers">
+
+    <div class="content container">
+    {
+        QUESTIONS.map(({question, anwser, links}) => {
+
+
+            return <details>
+                <summary>{question}</summary>
+
+                <article>
+                {
+                    anwser?.map(value => {
+
+                        return <p>{value}</p>
+                    })
+                }
+                </article>
+            </details>
+        })
+    }
+    </div>
+</section>
+
+<style>
+    .Question-and-anwsers {
+        background-color: #fff;
+        padding-block: 50px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            details {
+                padding: 20px 20px;
+                list-style: none;
+                
+                summary {
+                    display: block;
+                    text-align: center;
+                    font-size: 30px;
+                    color: #0c3947;
+                    text-wrap: balance;
+                }
+
+                article {
+                    padding-top: 20px;
+
+                    p {
+                        margin-inline: auto;
+                        max-width: 80ch;
+                    }
+                }
+            }
+        }
+    }
+</style>
