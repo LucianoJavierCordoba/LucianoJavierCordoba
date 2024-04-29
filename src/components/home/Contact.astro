@@ -1,12 +1,11 @@
 ---
-import {parseTelephone} from "@/utils/ParseTelephone.js";
+import { LINKS } from "@/utils/RedesUtils";
 import LANGUAGES from "@/i18n/index.js";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.contact;
 
-
-const calendar = import.meta.env.PUBLIC_CALENDAR;
-const telefono = import.meta.env.PUBLIC_TELEFONO;
+const tel = LINKS['telephone'];
+const calendly = LINKS['calendly'];
 ---
 
 
@@ -16,12 +15,12 @@ const telefono = import.meta.env.PUBLIC_TELEFONO;
 
     <div class="Contact-links">
 
-        <a class="btn btn-outline-primary btn-lg" href={calendar} target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-calendar2-event-fill"></i> {LANG.link_1}
+        <a class="btn btn-outline-primary btn-lg" href={calendly.link} target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-calendar2-event"></i> {LANG.link_1}
         </a>
 
-        <a class="btn btn-outline-primary btn-lg" href={`tel:${telefono}`} target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-telephone-fill"></i> {parseTelephone(telefono)}
+        <a class="btn btn-outline-primary btn-lg" href={tel.link} target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-telephone"></i> {tel.label}
         </a>
 
     </div>
@@ -69,7 +68,7 @@ const telefono = import.meta.env.PUBLIC_TELEFONO;
                 --bs-btn-color: var(--contact-text-color);
 
                 i {
-                    margin-inline: 0.5em;
+                    margin-inline: 0.2em;
                 }
             }
         }

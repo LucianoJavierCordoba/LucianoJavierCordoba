@@ -1,0 +1,22 @@
+
+a.icon-link[href*='wa.me/']::before {
+
+    content: '\f618';
+    color: #1daa61;
+    font-size: 0.9em;
+    font-family: 'bootstrap-icons';
+}
+
+a.icon-link[href*='tel:']::before {
+
+    content: '\f5c1';
+    font-size: 0.9em;
+    font-family: 'bootstrap-icons';
+}
+
+a.icon-link[href*='mailto:']::before {
+
+    content: '\f32f';
+    font-size: 0.9em;
+    font-family: 'bootstrap-icons';
+}

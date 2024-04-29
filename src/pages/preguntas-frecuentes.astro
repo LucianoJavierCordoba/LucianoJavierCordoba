@@ -14,7 +14,7 @@ const LANG = LANGUAGES.get(locale)?.preguntas_frecuentes.banner;
 
 <Layout title="Preguntas frecuentes">
 
-    <Banner background={{video, poster}}>
+    <Banner background={{video, poster, height: 650}} >
 
         <h1 class="banner-title">{LANG.title}</h1>
         
@@ -30,6 +30,10 @@ const LANG = LANGUAGES.get(locale)?.preguntas_frecuentes.banner;
 </Layout>
 
 <style>
+
+    :global(.Video-background video) {
+        object-position: center;
+    }
     .banner-title {
         font-weight: bolder;
         font-size: 80px;

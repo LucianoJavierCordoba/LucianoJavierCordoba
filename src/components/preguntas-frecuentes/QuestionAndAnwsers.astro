@@ -1,5 +1,7 @@
 ---
+import "@/css/links-icons.css";
 import LANGUAGES from "@/i18n/index.js";
+import { LINKS } from "@/utils/RedesUtils";
 
 const locale = Astro.currentLocale;
 
@@ -18,12 +20,31 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
                 <summary>{question}</summary>
 
                 <article>
-                {
-                    anwser?.map(value => {
+                    {
+                        anwser?.map(value => {
 
-                        return <p>{value}</p>
-                    })
-                }
+                            return <p>{value}</p>
+                        })
+                    }
+
+                    <div class="helper-links">
+                        {
+                            links?.map((value = '') => {
+
+                                if(value.startsWith('link:')){
+
+                                    const [_, name] = value.split(':');
+                                    const {label, link} = LINKS[name];
+
+                                    return <a class="icon-link" href={link}>{label}</a>
+                                }
+
+                                return <a class="icon-link" href={value}>{value}</a>
+                            })
+                        }
+                    </div>
+
+                    <hr />
                 </article>
             </details>
         })
@@ -54,13 +75,46 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
 
                 article {
                     padding-top: 20px;
+                    margin-inline: auto;
+                    max-width: 80ch;
 
                     p {
+                        font-size: 18px;
+                        letter-spacing: 1px;
+                    }
+
+                    .helper-links {
+                        display: flex;
+                        gap: 15px;
+                        justify-content: start;
+
+                        a {
+                            text-decoration: none;
+
+                            color: #03498b;
+                            font-size: 18px;
+
+                            &:hover {
+                                color: #056ed1;
+                            }
+                        }
+                    }
+
+                    hr {
+                        width: 90%;
                         margin-inline: auto;
-                        max-width: 80ch;
+                        border-color: #126077;
+                        border-width: 3px;
                     }
                 }
+
+            }
+
+            details:last-child article hr{
+                display: none;
             }
         }
     }
+
+    
 </style>
