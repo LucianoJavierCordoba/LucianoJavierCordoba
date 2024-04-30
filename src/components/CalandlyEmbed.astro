@@ -6,9 +6,11 @@ import { REDES } from "@/utils/RedesUtils"
 const {
     backgroundColor = '#ffffff', 
     color = '#000000', 
-    primaryColor = '#ff0000',
-    width = '1000px',
-    height = '700px'
+    primaryColor = '#0069ff',
+    width = '100%',
+    height = '700px',
+    hideCookies = true,
+    hideEventDetails = true
 } = Astro.props;
 
 const url = new URL(REDES.calendly);
@@ -16,20 +18,61 @@ const url = new URL(REDES.calendly);
 url.searchParams.set('background_color', backgroundColor.replace('#' ,''));
 url.searchParams.set('text_color', color.replace('#' ,''));
 url.searchParams.set('primary_color', primaryColor.replace('#' ,''));
+url.searchParams.set('embed_type', 'Inline');
+url.searchParams.set('embed_domain', import.meta.url);
+
+if(hideCookies) url.searchParams.set('hide_gdpr_banner', '1');
+if(hideEventDetails) url.searchParams.set('hide_event_type_details', '1');
 
 ---
 
-<div class="Calendly-embed container">
+<div class="Calendly-embed">
 
-    <!-- Calendly inline widget begin -->
-    <div class="calendly-inline-widget" data-url={url.href} style={{width, height}}></div>
+    <custom-calendly data-url={url.href}/>
 
-
-    <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </div>
 
-<style>
-    .calendly-inline-widget {
-        margin-inline: auto;
+<script>
+    class CustomCalendly extends HTMLElement {
+
+        constructor(){
+            super();
+
+            this.url = this.getAttribute('data-url');
+
+            const iframe = document.createElement('iframe');
+
+            iframe.src = this.url;
+
+            iframe.addEventListener('load', (e) => {
+
+                console.log('load iframe')
+            });
+
+            this.appendChild(iframe);
+        }
     }
+
+    customElements.define('custom-calendly', CustomCalendly);
+</script>
+
+
+
+<style
+    define:vars={{
+        'calendly-width': width,
+        'calendly-height': height,
+    }}
+>
+    .Calendly-embed {
+        width: var(--calendly-width);
+        height: var(--calendly-height);
+    }
+
+    .Calendly-embed :global(iframe) {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
 </style>

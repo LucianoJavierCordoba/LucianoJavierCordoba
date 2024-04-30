@@ -1,0 +1,55 @@
+---
+const {
+    id = crypto.randomUUID(), 
+    title = 'Modal title',
+    btnClass = '',
+    size = 'default'
+} = Astro.props;
+
+const SIZES = {
+    'xl': 'modal-xl',
+    'sm': 'modal-sm',
+    'lg': 'modal-lg',
+    'default': '',
+}
+---
+
+<!-- Button trigger modal -->
+<button type="button" class={`btn ${btnClass}`} data-bs-toggle="modal" data-bs-target={`#${id}`}>
+    <slot name="modal-btn" />
+</button>
+
+<!-- Modal -->
+<div class={`modal fade`} id={id} tabindex="-1">
+
+    <div class="modal-dialog" class:list={[SIZES[size]]}>
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <slot name="modal-header"/>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" />
+            </div>
+
+            <div class="modal-body">
+                <slot name="modal-body" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+    .modal {
+        --bs-modal-padding: 0;
+        --bs-modal-bg: #fff;
+
+        .modal-content {    
+            overflow: hidden;
+        }
+    }
+
+
+</style>

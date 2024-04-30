@@ -1,6 +1,8 @@
 ---
 import { LINKS } from "@/utils/RedesUtils";
 import LANGUAGES from "@/i18n/index.js";
+import Modal from "@/components/Modal.astro";
+import CalandlyEmbed from "../CalandlyEmbed.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.contact;
 
@@ -15,9 +17,13 @@ const calendly = LINKS['calendly'];
 
     <div class="Contact-links">
 
-        <a class="btn btn-outline-primary btn-lg" href={calendly.link} target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-calendar2-event"></i> {LANG.link_1}
-        </a>
+        <Modal btnClass="btn-outline-primary btn-lg" size="" id="Calendly-modal" title="Calendario">
+            <span slot="modal-btn"><i class="bi bi-calendar2-event" /> {LANG.link_1}</span> 
+
+            <i class="bi bi-calendar2-event" slot="modal-header" />
+
+            <CalandlyEmbed height="500px" slot="modal-body"/>
+        </Modal>
 
         <a class="btn btn-outline-primary btn-lg" href={tel.link} target="_blank" rel="noopener noreferrer">
             <i class="bi bi-telephone"></i> {tel.label}
@@ -25,9 +31,7 @@ const calendly = LINKS['calendly'];
 
     </div>
 
-    <h5 class="Contact-heading">{LANG.heading_2}</h5>
-
-    <a class="btn btn-success btn-lg" href="/tarifas" target="_blank" rel="noopener noreferrer">
+    <a class="btn btn-success btn-lg" href="/tarifas" target="_blank" rel="noopener noreferrer" title={LANG.link_2}>
         {LANG.link_2}
     </a>
 
@@ -57,7 +61,7 @@ const calendly = LINKS['calendly'];
         }
 
         .Contact-links {
-            padding-bottom: 50px;
+            padding-bottom: 20px;
             display: flex;
             gap: 50px;
 

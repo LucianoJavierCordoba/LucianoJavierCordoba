@@ -1,6 +1,7 @@
 ---
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js?url";
 
 import Navigation from "@/components/Navigation.astro";
 import Logo from "@/assets/logo.astro";
@@ -34,6 +35,8 @@ const { title } = Astro.props;
 		<slot />
 
 		<Footer />
+
+		<script is:inline src={bootstrap}></script>
 	</body>
 </html>
 
