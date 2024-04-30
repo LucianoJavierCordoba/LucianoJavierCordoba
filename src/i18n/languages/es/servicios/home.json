@@ -1,0 +1,36 @@
+{
+
+    "banner": {
+        "title": "La solución preferida de pymes. Efectiva, economica, y profesional.",
+        "subtitle": "Un experto en tu plantilla por un <span>coste saludable</span> para tu empresa."
+    },
+
+    "cards": [
+        {
+            "title": "Atención al Cliente",
+            "description": "Refuerce la estructura de sus canales de atención, y garantice la mejor experiencia a su activo mas valioso, sus clientes."
+        },
+        {
+            "title": "Prospección B2B",
+            "description": "Implemente una camapaña de generación de demanda. Convierta a sus leads en clientes. Y mejore su tasa de éxito."
+        },
+        {
+            "title": "Asistente Administrativo Jr.",
+            "description": "Organice y simplifique todos los procesos de gestión. Con un colaborador 100% dedicado a dinamizar sus tareas administrativas"
+        },
+        {
+            "title": "Supervisor de Ventas",
+            "description": "Complemente sus equipos de Prospección y Ventas. Desarrollando una plantilla de excelencia en desempeño y un lugar más feliz para sus colaboradores."
+        },
+        {
+            "title": "Vendedor Telefónico",
+            "description": "Ventas Excepcionales, Compradores satisfechos. Mejore los resultados mientras reduce los costos operativos y garantiza una relación comercial a largo plazo."
+        },
+        {
+            "title": "Gestión de retención y fidelización de clientes.",
+            "description": "Maximice el valor de sus productos y servicios. Mejore su estrategias para contener y retener a sus clientes más leales."
+        }
+    ],
+
+    "card_bottom_link": "consultar costos"
+}

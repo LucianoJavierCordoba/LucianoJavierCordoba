@@ -1,0 +1,35 @@
+---
+import { REDES } from "@/utils/RedesUtils"
+
+// show: https://developer.calendly.com/how-to-display-the-scheduling-page-for-users-of-your-app
+
+const {
+    backgroundColor = '#ffffff', 
+    color = '#000000', 
+    primaryColor = '#ff0000',
+    width = '1000px',
+    height = '700px'
+} = Astro.props;
+
+const url = new URL(REDES.calendly);
+
+url.searchParams.set('background_color', backgroundColor.replace('#' ,''));
+url.searchParams.set('text_color', color.replace('#' ,''));
+url.searchParams.set('primary_color', primaryColor.replace('#' ,''));
+
+---
+
+<div class="Calendly-embed container">
+
+    <!-- Calendly inline widget begin -->
+    <div class="calendly-inline-widget" data-url={url.href} style={{width, height}}></div>
+
+
+    <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</div>
+
+<style>
+    .calendly-inline-widget {
+        margin-inline: auto;
+    }
+</style>

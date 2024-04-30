@@ -7,6 +7,7 @@ import about_service from "./about-service.es.json";
 import contact from "./contact.es.json";
 import questions from "./preguntas-frecuentes/questions.json";
 import questions_banner from "./preguntas-frecuentes/banner.json";
+import servicios_home from "./servicios/home.json";
 
 export default {
     testimonials,
@@ -20,5 +21,9 @@ export default {
     preguntas_frecuentes: {
         questions: questions,
         banner: questions_banner
+    },
+
+    servicios: {
+        home: servicios_home
     }
 }
