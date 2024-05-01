@@ -5,11 +5,10 @@ import card_3 from "@assets/videos/card-3/card-3.webm";
 import lucho from "@assets/Luciano-cordoba.png";
 import LANGUAGES from "@/i18n/index.js";
 import SIZES from "@/utils/16x9-Resolution.js";
+import { NAME } from "@/config";
 
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.about_me;
-
-const name = import.meta.env.PUBLIC_NAME;
 
 const CARDS = [
     {
@@ -35,7 +34,7 @@ const CARDS = [
 
     <div class="About-me-content container">
 
-        <img class="About-me-image" src={lucho.src} alt={`Foto de ${name}`} >
+        <img class="About-me-image" src={lucho.src} alt={`Foto de ${NAME}`} >
     
         <h2 class="About-me-title">{LANG.title}</h2>
     

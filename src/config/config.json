@@ -1,0 +1,47 @@
+{
+    "name": "Luciano Javier Cordoba",
+
+    "redes": {
+        "email": "lucanojaviercordoba@gmail.com",
+        "telephone": "5493812020962",
+        "whatsapp": "5493812020962",
+        "instagram": "https://www.instagram.com/changuerio/",
+        "facebook": "https://www.facebook.com/Llajta.fernandez",
+        "linkedin": "https://www.linkedin.com/in/lucianojaviercordoba/",
+
+        "soporte": "lucanojaviercordoba@gmail.com",
+        "contacto": "lucanojaviercordoba@gmail.com",
+
+        "calendly": "https://calendly.com/lucianojaviercordoba/30min"
+    },
+
+    "copyright": "© 2024 - Luciano Javier Cordoba",
+
+
+    "services-pricing": {
+        "asistente-administrativo": {
+            "middle": "400€",
+            "full": "749€"
+        },
+        "prospeccion-b2b": {
+            "middle": "700€",
+            "full": "1300€"
+        },
+        "atencion-al-cliente": {
+            "middle": "550€",
+            "full": "1049€"
+        },
+        "supervisor-de-ventas": {
+            "middle": "0€",
+            "full": "0€"
+        },
+        "vendedor-telefonico": {
+            "middle": "0€",
+            "full": "0€"
+        },
+        "gestion": {
+            "middle": "0€",
+            "full": "0€"
+        }
+    }
+}

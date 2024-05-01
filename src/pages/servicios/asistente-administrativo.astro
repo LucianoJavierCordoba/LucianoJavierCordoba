@@ -3,12 +3,14 @@ import Layout from "@layouts/Layout.astro";
 import video from "@assets/videos/administrativo/administrativo.webm";
 import poster from "@assets/videos/administrativo/administrativo.webp";
 import Banner from "@components/Banner.astro";
-
+import {SERVICES_PRICING} from "@/config/index.js";
 import LANGUAGES from "@/i18n/index.js";
 import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
+import Contact from "@/components/home/Contact.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administrativo'];
+
 ---
 
 <Layout title="Asistente administratico Jr.">
@@ -23,9 +25,11 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
 
     </Banner>
 
-    <Price LANG={LANG.pricing} />
+    <Price LANG={LANG.pricing} price={SERVICES_PRICING['asistente-administrativo']} />
 
     <PayMethods />
+
+    <Contact />
 
 </Layout>
 

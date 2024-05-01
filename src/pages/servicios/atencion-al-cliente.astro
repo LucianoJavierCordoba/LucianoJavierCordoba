@@ -10,6 +10,8 @@ import LANGUAGES from "@/i18n/index.js";
 import { STACK_3 } from "@/assets/logos";
 import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
+import { SERVICES_PRICING } from "@/config";
+import Contact from "@/components/home/Contact.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'];
 ---
@@ -26,9 +28,11 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
 
     </Banner>
 
-    <Price LANG={LANG.pricing} />
+    <Price LANG={LANG.pricing} price={SERVICES_PRICING['atencion-al-cliente']}/>
 
     <PayMethods />
+
+    <Contact />
 
 </Layout>
 

@@ -1,5 +1,5 @@
 ---
-const {LANG, price = '0 $'} = Astro.props;
+const {LANG, price} = Astro.props;
 ---
 
 <section class="Service-price">
@@ -13,7 +13,7 @@ const {LANG, price = '0 $'} = Astro.props;
 
             <span>{LANG.middle.hours.at(0)}</span>
 
-            <span class="Service-card-price">{price}</span>
+            <span class="Service-card-price">{price?.middle}</span>
 
             <span>{LANG.middle.hours.at(1)}</span>
 
@@ -32,7 +32,7 @@ const {LANG, price = '0 $'} = Astro.props;
 
             <span>{LANG.full.hours.at(0)}</span>
 
-            <span class="Service-card-price">{price}</span>
+            <span class="Service-card-price">{price?.full}</span>
 
             <span>{LANG.full.hours.at(1)}</span>
 
@@ -68,9 +68,11 @@ const {LANG, price = '0 $'} = Astro.props;
 
         .Service-price-content {
             display: flex;
+            justify-content: space-evenly;
             gap: 30px;
 
             .Service-card {
+                max-width: 320px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;

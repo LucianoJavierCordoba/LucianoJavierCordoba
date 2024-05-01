@@ -10,13 +10,14 @@ import Testimonials from "@/components/home/Testimonials.astro";
 import AboutMe from "@/components/home/AboutMe.astro";
 import Contact from "@/components/home/Contact.astro";
 import AboutService from "@/components/home/AboutService.astro";
+import { NAME } from "@/config";
 
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
 ---
 
-<Layout title={import.meta.env.PUBLIC_NAME}>
+<Layout title={NAME}>
 	
     <Banner background={{video, poster}}>
 

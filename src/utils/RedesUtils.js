@@ -1,16 +1,7 @@
+import { REDES } from "@/config/index.js";
 import {parseTelephone} from "./ParseTelephone.js";
 
-export const REDES = {
-    email: import.meta.env.PUBLIC_EMAIL,
-    telephone: import.meta.env.PUBLIC_TELEPHONE,
-    whatsapp: import.meta.env.PUBLIC_WHATSAPP,
-    instagram: import.meta.env.PUBLIC_INSTAGRAM,
-    facebook: import.meta.env.PUBLIC_FACEBOOK,
-    linkedin: import.meta.env.PUBLIC_LINKEDIN,
-    soporte: import.meta.env.PUBLIC_SOPORTE,
-    contacto: import.meta.env.PUBLIC_CONTACTO,
-    calendly: import.meta.env.PUBLIC_CALENDLY
-}
+
 
 export const LINKS = new Proxy(REDES, {
 
