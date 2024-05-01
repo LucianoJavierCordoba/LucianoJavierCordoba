@@ -4,22 +4,31 @@ import video from "@assets/videos/cliente/cliente.webm";
 import poster from "@assets/videos/cliente/cliente.webp";
 import Banner from "@components/Banner.astro";
 
+
+
 import LANGUAGES from "@/i18n/index.js";
+import { STACK_3 } from "@/assets/logos";
+import Price from "@/components/servicios/Price.astro";
+import PayMethods from "@/components/servicios/PayMethods.astro";
 
-const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
-
+const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'];
 ---
 
 <Layout title="Atencion al Cliente">
 
-    <Banner background={{video, poster}}>
+    <Banner background={{video, poster: poster.src}}>
 
-        <h1 class="banner-title">Atencion al Cliente</h1>
+        <h1 class="banner-title">{LANG.banner.title}</h1>
         
-        <h2 class="banner-subtitle" set:html={LANG.banner.subtitle}></h2>
+        <h2 class="banner-subtitle">
+            {LANG.banner.heading.at(0)} {750} {LANG.banner.heading.at(1)}
+        </h2>
 
-        
     </Banner>
+
+    <Price LANG={LANG.pricing} />
+
+    <PayMethods />
 
 </Layout>
 
@@ -53,5 +62,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
         & :global(span) {
             color: #1da1d2;
         }
+    }
+
+    :global(.Service-price-title) {
+        color: #00b1c5;
     }
 </style>

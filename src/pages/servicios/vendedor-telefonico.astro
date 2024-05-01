@@ -5,20 +5,27 @@ import poster from "@assets/videos/vendedor/vendedor.webp";
 import Banner from "@components/Banner.astro";
 
 import LANGUAGES from "@/i18n/index.js";
+import Price from "@/components/servicios/Price.astro";
+import PayMethods from "@/components/servicios/PayMethods.astro";
 
-const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
+const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['vendedor-telefonico'];
 ---
 
 <Layout title="Vendedor telefonico">
 
     <Banner background={{video, poster}}>
 
-        <h1 class="banner-title">Vendedor telefonico</h1>
+        <h1 class="banner-title">{LANG.banner.title}</h1>
         
-        <h2 class="banner-subtitle" set:html={LANG.banner.subtitle}></h2>
-
+        <h2 class="banner-subtitle">
+            {LANG.banner.heading.at(0)} {750} {LANG.banner.heading.at(1)}
+        </h2>
         
     </Banner>
+
+    <Price LANG={LANG.pricing} />
+
+    <PayMethods />
 
 </Layout>
 

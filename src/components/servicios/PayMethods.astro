@@ -1,0 +1,78 @@
+---
+import {PAY_ICONS} from "@assets/logos/index.js";
+
+import LANGUAGES from "@/i18n/index.js";
+
+const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['pay-methods'];
+
+
+---
+
+<section class="Pay-methods">
+
+    <div class="Pay-methods-content container">
+
+        <h3 class="Pay-methods-title">{LANG.title}</h3>
+    
+        <div class="Pay-methods-icons">
+            {
+                PAY_ICONS.map(({name, image}) => {
+    
+                    return <img src={image.src} alt={`Logo ${name}`} />
+                })
+            }
+        </div>
+    
+        <ul class="Pay-methods-details">
+            {
+                LANG.details.map((text) => {
+    
+                    return <li>{text}</li>
+                })
+            }
+        </ul>
+    </div>
+
+</section>
+
+<style>
+    .Pay-methods {
+        padding-block: 50px;
+        background-color: #fff;
+        
+        .Pay-methods-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+
+            .Pay-methods-title {
+                font-size: 40px;
+                letter-spacing: 2px;
+                font-family: var(--titles-font);
+            }
+
+            .Pay-methods-icons {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 150px;
+    
+                img {
+                    width: 200px;
+                }
+            }
+
+            .Pay-methods-details {
+                max-width: 100ch;
+                color: #555555;
+                list-style-position: outside;
+                list-style-type: "- ";
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+
+
+    }
+</style>

@@ -5,20 +5,28 @@ import poster from "@assets/videos/prospeccion/prospeccion.webp";
 import Banner from "@components/Banner.astro";
 
 import LANGUAGES from "@/i18n/index.js";
+import Price from "@/components/servicios/Price.astro";
+import PayMethods from "@/components/servicios/PayMethods.astro";
 
-const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
+const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 ---
 
 <Layout title="Prospeccion B2B">
 
     <Banner background={{video, poster}}>
 
-        <h1 class="banner-title">Prospeccion B2B</h1>
+        <h1 class="banner-title">{LANG.banner.title}</h1>
         
-        <h2 class="banner-subtitle" set:html={LANG.banner.subtitle}></h2>
+        <h2 class="banner-subtitle">
+            {LANG.banner.heading.at(0)} {750} {LANG.banner.heading.at(1)}
+        </h2>
 
         
     </Banner>
+
+    <Price LANG={LANG.pricing} />
+
+    <PayMethods />
 
 </Layout>
 
@@ -52,5 +60,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
         & :global(span) {
             color: #1da1d2;
         }
+    }
+
+    :global(.Service-price-title){
+        color: #ffa340;
     }
 </style>

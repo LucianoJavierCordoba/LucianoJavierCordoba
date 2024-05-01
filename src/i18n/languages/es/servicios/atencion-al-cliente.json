@@ -1,0 +1,41 @@
+{
+    "banner": {
+        "title": "ATENCION AL CLIENTE",
+        "heading": [
+            "JORNADAS COMPLETAS DESDE", 
+            "MES"
+        ]
+    },
+
+    "quote": [
+        "La efectividad se construye sobre la base de una organización eficiente.",
+        "Mantener una estructura organizativa sólida, bien comunicada y ordenada desde los cimientos, te facilitará la coordinación de tareas y generará lugares de trabajo más felices.",
+        "Una empresa bien organizada, es y será una gran empresa..."
+    ],
+
+    "pricing": {
+        "title": "LA PIEZA QUE LE FALTA A TU EMPRESA DESDE",
+        "middle": {
+            "title": "MEDIA JORNADA",
+            "hours": [
+                "(20HS SEMANALES)",
+                "AL MES"
+            ],
+            "details": [
+                "Precio final.",
+                "No genera cargos extra por contratación o cancelación de servicio."
+            ]
+        },
+        "full": {
+            "title": "JORNADA COMPLETA",
+            "hours": [
+                "(40HS SEMANALES)",
+                "AL MES"
+            ],
+            "details": [
+                "Precio final.",
+                "No genera cargos extra por contratación o cancelación de servicio."
+            ]
+        }
+    }
+}

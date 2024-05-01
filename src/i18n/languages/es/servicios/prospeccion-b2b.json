@@ -1,0 +1,62 @@
+{
+    "banner": {
+        "title": "PROSPECCION B2B",
+        "subtitle": "IMPLEMENTE UNA CAMPAÑA DE GENERACIÓN DE DEMANDA. CONVIERTA A SUS LEADS EN CLIENTES, Y AUMENTE SU TASA DE ÉXITO.",
+        "heading": [
+            "JORNADAS COMPLETAS DESDE", 
+            "MES"
+        ]
+    },
+
+    "quote": [
+        "La prospección es la cúspide en el ambito comercial. Es sin dudas, el desafío más grande para un vendedor y una de las mejores metodologías para generar demanda.",
+        "No se trata solo de una interacción. Pues la prospección, es el arte de encantar, el desafío de reinventarse, la capacidad para replantearse y la constancia para conseguir un gran resultado.",
+        "No basta con el talento, no solo es una estrategia. Es un estilo de vida."
+    ],
+
+    "stadistics": {
+        "title": "MI PROSPECCIÓN EN NÚMEROS",
+        "numbers": [
+            {
+                "value": "+170 LEADS",
+                "text": "GENERADOS EN EL ULTIMO AÑO"
+            },
+            {
+                "value": "14.33%",
+                "text": "TASA DE CONVERSIÓN"
+            },
+            {
+                "value": "63%",
+                "text": "TASA DE RESPUESTA"
+            }
+        ],
+
+        "details": "DATOS MEDIDOS ENTRE ABRIL 2023 Y ABRIL 2024 EN BASE A BITÁCORA PERSONAL"
+    },
+
+    "pricing": {
+        "title": "LA PIEZA QUE LE FALTA A TU EMPRESA DESDE",
+        "middle": {
+            "title": "MEDIA JORNADA",
+            "hours": [
+                "(20HS SEMANALES)",
+                "AL MES"
+            ],
+            "details": [
+                "Precio final.",
+                "No genera cargos extra por contratación o cancelación de servicio."
+            ]
+        },
+        "full": {
+            "title": "JORNADA COMPLETA",
+            "hours": [
+                "(40HS SEMANALES)",
+                "AL MES"
+            ],
+            "details": [
+                "Precio final.",
+                "No genera cargos extra por contratación o cancelación de servicio."
+            ]
+        }
+    }
+}

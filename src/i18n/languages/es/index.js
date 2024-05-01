@@ -24,6 +24,13 @@ export default {
     },
 
     servicios: {
-        home: servicios_home
+        home: servicios_home,
+        'asistente-administrativo': (await import('./servicios/asistente-administrativo.json')).default,
+        'atencion-al-cliente': (await import('./servicios/atencion-al-cliente.json')).default,
+        'prospeccion-b2b': (await import('./servicios/prospeccion-b2b.json')).default,
+        'supervisor-de-ventas': (await import('./servicios/supervisor-de-ventas.json')).default,
+        'vendedor-telefonico': (await import('./servicios/vendedor-telefonico.json')).default,
+        'gestion': (await import('./servicios/gestion.json')).default,
+        'pay-methods': (await import('./servicios/pay-methods.json')).default
     }
 }

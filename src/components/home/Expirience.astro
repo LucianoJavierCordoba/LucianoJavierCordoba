@@ -14,9 +14,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
 
     <div class="Expirience-icons">
         {
-            GROUP_1.map(({name, src}) => {
+            GROUP_1.map(({name, image}) => {
 
-                return <img src={src} title={name} alt={`Logo de ${name}`} />
+                return <img src={image.src} title={name} alt={`Logo de ${name}`} />
             })
         }
     </div>
@@ -25,9 +25,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
 
     <div class="Expirience-icons">
         {
-            GROUP_2.map(({name, src}) => {
+            GROUP_2.map(({name, image}) => {
 
-                return <img src={src} title={name} alt={`Logo de ${name}`} />
+                return <img src={image.src} title={name} alt={`Logo de ${name}`} />
             })
         }
     </div>
