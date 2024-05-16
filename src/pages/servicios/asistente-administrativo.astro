@@ -8,14 +8,16 @@ import LANGUAGES from "@/i18n/index.js";
 import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
 import Contact from "@/components/home/Contact.astro";
+import Quote from "@/components/servicios/Quote.astro";
+import TechStack from "@/components/servicios/TechStack.astro";
+import {STACK_2} from "@assets/logos/index.js";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administrativo'];
-
 ---
 
-<Layout title="Asistente administratico Jr.">
+<Layout title="Asistente administrativo Jr.">
 
-    <Banner background={{video, poster: poster.src}}>
+    <Banner background={{video, poster}}>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>
         
@@ -24,6 +26,15 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
         </h2>
 
     </Banner>
+
+    <section class="About-service">
+        <div class="About-service-content">
+            <Quote text={LANG.quote} />
+
+        </div>
+
+        <TechStack icons={STACK_2} title={LANG["tech-stack-title"]}/>
+    </section>
 
     <Price LANG={LANG.pricing} price={SERVICES_PRICING['asistente-administrativo']} />
 
@@ -67,8 +78,23 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
             color: #1da1d2;
         }
     }
-
     :global(.Service-price-title) {
         color: #0088ee;
+    }
+
+    .About-service {
+        padding-block: 50px;
+        background-color: #82b8ff;
+        
+        .About-service-content {
+            padding-inline: 50px;
+            padding-bottom: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        } 
+    }
+    .About-service :global(.Tech-stack){
+        background-color: #ffffffaa;
+        --tech-icon-width: 100px;
     }
 </style>

@@ -23,9 +23,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
         <h1 class="banner-title">{LANG.title}</h1>
         
-        <h2 class="banner-subtitle">{LANG.subtitle}</h2>
+        <h2 class="banner-subtitle" set:html={LANG.subtitle}></h2>
 
-        <h3 class="banner-heading">{LANG.heading}</h3>
+        <!-- <h3 class="banner-heading">{LANG.heading}</h3> -->
 
     </Banner>
 
@@ -46,21 +46,39 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
     :global(.Banner-content) {
 
         gap: 30px;
+        
+    }
+    :global(custom-video video) {
+
+        gap: 30px;
+        filter: blur(5px);
     }
     .banner-title {
+        color: #001a97;
+        color: #666683;
         font-weight: bolder;
         font-size: 80px;
         text-align: center;
-        text-shadow: 0px 8px 5px #00000050;
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
         line-height: 1.5;
+
+        
     }
     .banner-subtitle {
+        color: #05aacf;
+        color: #3f51b5;
         font-weight: bold;
         text-align: center;
         font-size: 45px;
-        text-shadow: 0px 8px 5px #00000050;
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
+        text-wrap: balance;
+
+        & :global(div) {
+            color: #fb6535;
+            color: #3f51b5;
+        }
     }
     .banner-heading {
         margin-top: auto;

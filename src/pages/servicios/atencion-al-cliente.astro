@@ -12,13 +12,15 @@ import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
 import { SERVICES_PRICING } from "@/config";
 import Contact from "@/components/home/Contact.astro";
+import TechStack from "@/components/servicios/TechStack.astro";
+import Quote from "@/components/servicios/Quote.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'];
 ---
 
 <Layout title="Atencion al Cliente">
 
-    <Banner background={{video, poster: poster.src}}>
+    <Banner background={{video, poster}}>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>
         
@@ -27,6 +29,15 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
         </h2>
 
     </Banner>
+
+    <section class="About-service">
+        <div class="About-service-content">
+            <Quote text={LANG.quote} />
+
+        </div>
+
+        <TechStack icons={STACK_3} title={LANG["tech-stack-title"]}/>
+    </section>
 
     <Price LANG={LANG.pricing} price={SERVICES_PRICING['atencion-al-cliente']}/>
 
@@ -70,5 +81,22 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
 
     :global(.Service-price-title) {
         color: #00b1c5;
+    }
+
+    .About-service {
+        padding-block: 50px;
+        background-color: #005487;
+        
+        .About-service-content {
+            padding-inline: 50px;
+            padding-bottom: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        } 
+    }
+    .About-service :global(.Tech-stack){
+        background-color: #ffffffaa;
+        --tech-icon-width: 120px;
+        --tech-icon-gap: 50px;
     }
 </style>

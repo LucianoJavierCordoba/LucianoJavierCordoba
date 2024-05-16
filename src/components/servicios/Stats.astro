@@ -1,0 +1,57 @@
+---
+const {LANG} = Astro.props;
+---
+
+<article class="Service-stats">
+
+    <h4 class="Service-stats-title">{LANG.stats.title}</h4>
+
+    {
+        LANG.stats.numbers.map(({value, text}) => {
+
+            return <p>
+                <span>{value}</span>
+                <span>{text}</span>
+            </p>
+        })
+    }
+
+    <p>{LANG.stats.details}</p>
+
+</article>
+
+<style>
+    .Service-stats {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        font-family: var(--titles-font);
+        text-align: center;
+
+        .Service-stats-title {
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        p {
+            font-size: 35px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #777;
+            span {
+                display: block;
+            }
+
+            &:nth-last-child(2){
+                font-size: 25px;
+            }
+            &:nth-last-child(1){
+                font-size: 16px;
+            }
+        }
+    }
+
+</style>

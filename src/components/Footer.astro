@@ -39,19 +39,19 @@ const FOOTER_LINKS = [
     },
     {
         text: LANG.link_2,//Tarifas por posicíon
-        url: '/tarifas'
+        url: '/servicios'
     },
     {
         text: LANG.link_3,//Desubscribirse del servicio
-        url: ''
+        url: 'https://prospect.ar'
     },
     {
         text: LANG.link_4,//¿Quieres desarrollar tu propia web?
-        url: ''
+        url: '/yo'
     },
     {
         text: LANG.link_5,//¿Tienes alguna sugerencia?
-        url: ''
+        url: '/web-form'
     },
 ]
 ---
@@ -103,11 +103,11 @@ const FOOTER_LINKS = [
     }
     :global([data-theme="dark"]) {
 
-        --footer-bg: #aec4dc;
+        --footer-bg: #6f8ed3;
     }
     :global([data-theme="light"]) {
 
-        --footer-bg: #004b9b;
+        --footer-bg: #6f8ed3;
     }
 
     .Footer {
@@ -130,7 +130,7 @@ const FOOTER_LINKS = [
                 text-decoration: none;
                 font-size: 18px;
                 color: #fff;
-                text-shadow: 0px 0px 2px #000000;
+                /* text-shadow: 0px 0px 2px #000000; */
                 transition: font-size 0.4s;
                 line-height: 22px;
             }

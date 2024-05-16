@@ -1,0 +1,63 @@
+---
+import { NAME } from "@/config";
+
+const {text = []} = Astro.props;
+---
+
+
+<article class="Service-quote">
+
+    {
+        text.map(value => {
+
+            return <p>{value}</p>
+        })
+    }
+    
+    <span class="Service-quote-sign">{NAME}</span>
+
+</article>
+
+<style>
+    .Service-quote {
+        margin: 50px auto;
+        padding: 20px;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 10px;
+
+        p {
+            font-style: italic;
+            font-size: 18px;
+            letter-spacing: 1px;
+
+            &:first-child {
+
+                text-indent: 0.5em;
+
+                &::before {
+                    content: '\f6b0';
+                    display: inline-block;
+                    font-family: 'bootstrap-icons';
+                }
+            }
+            &:nth-last-child(2) {
+                
+                &::after {
+                    content: '\f6b0';
+                    display: inline-block;
+                    rotate: 180deg;
+                    font-family: 'bootstrap-icons';
+                }
+            }
+        }
+        .Service-quote-sign {
+            display: block;
+            font-size: 18px;
+            text-align: end;
+            color: #b12426;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    }
+</style>

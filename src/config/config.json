@@ -20,28 +20,28 @@
 
     "services-pricing": {
         "asistente-administrativo": {
-            "middle": "400€",
-            "full": "749€"
+            "middle": "500€",
+            "full": "949€"
         },
         "prospeccion-b2b": {
-            "middle": "700€",
-            "full": "1300€"
+            "middle": "750€",
+            "full": "1400€"
         },
         "atencion-al-cliente": {
             "middle": "550€",
             "full": "1049€"
         },
         "supervisor-de-ventas": {
-            "middle": "0€",
-            "full": "0€"
+            "middle": "800€",
+            "full": "1500€"
         },
         "vendedor-telefonico": {
-            "middle": "0€",
-            "full": "0€"
+            "middle": "750€",
+            "full": "1400€"
         },
         "gestion": {
-            "middle": "0€",
-            "full": "0€"
+            "middle": "650€",
+            "full": "1149€"
         }
     }
 }

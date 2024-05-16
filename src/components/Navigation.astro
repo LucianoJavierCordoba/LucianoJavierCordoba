@@ -10,10 +10,6 @@ const LINKS = [
 		url: '/servicios'
 	},
 	{
-		name: 'Tarifas',
-		url: '/tarifas'
-	},
-	{
 		name: 'Preguntas frecuentes',
 		url: '/preguntas-frecuentes'
 	},
@@ -70,6 +66,9 @@ const LINKS = [
 		border-top: 3px solid var(--navigation-border-top-color);
 		background-color: var(--navigation-bg);
 		box-shadow: 0px 0px 10px 0px var(--navigation-shadow-color);
+
+		position: sticky;
+		top: 0;
 
 		.Navigation-content {
 			justify-content: end;

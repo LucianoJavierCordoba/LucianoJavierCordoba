@@ -9,6 +9,10 @@ import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
 import { SERVICES_PRICING } from "@/config";
 import Contact from "@/components/home/Contact.astro";
+import Quote from "@/components/servicios/Quote.astro";
+import TechStack from "@/components/servicios/TechStack.astro";
+import { STACK_1 } from "@/assets/logos";
+import Stats from "@/components/servicios/Stats.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 ---
@@ -25,6 +29,16 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 
         
     </Banner>
+
+    <section class="About-service">
+        <div class="About-service-content">
+            <Quote text={LANG.quote} />
+
+            <Stats LANG={LANG} />
+        </div>
+
+        <TechStack icons={STACK_1} title={LANG["tech-stack-title"]}/>
+    </section>
 
     <Price LANG={LANG.pricing} price={SERVICES_PRICING['prospeccion-b2b']}/>
 
@@ -68,5 +82,22 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 
     :global(.Service-price-title){
         color: #ffa340;
+    }
+
+    .About-service {
+        padding-block: 50px;
+        background-color: #feca90;
+        
+        .About-service-content {
+            padding-inline: 50px;
+            padding-bottom: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        } 
+    }
+    .About-service :global(.Tech-stack){
+        background-color: #e4e4e4aa;
+        --tech-icon-width: 100px;
+        --tech-icon-gap: 50px;
     }
 </style>
