@@ -7,7 +7,7 @@ import LANGUAGES from "@/i18n/index.js";
 const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
 ---
 
-<section class="About-service container">
+<section class="About-service container-fluid">
 
     <h2 class="About-service-title">{LANG.title}</h2>
     
@@ -15,67 +15,84 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
 
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_1} />
-            
-            <h6>{LANG.step_1_title}</h6>
-
-            <p>{LANG.step_1_text}</p>
+            <div>
+                <h6>{LANG.step_1_title}</h6>
+    
+                <p>{LANG.step_1_text}</p>
+            </div>
         </div>
 
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_2} />
-            
-            <h6>{LANG.step_2_title}</h6>
-
-            <p>{LANG.step_2_text}</p>
+            <div>
+                <h6>{LANG.step_2_title}</h6>
+    
+                <p>{LANG.step_2_text}</p>
+            </div>
         </div>
 
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_3} />
-            
-            <h6>{LANG.step_3_title}</h6>
-
-            <p>{LANG.step_3_text}</p>
+            <div>
+                <h6>{LANG.step_3_title}</h6>
+    
+                <p>{LANG.step_3_text}</p>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
     .About-service {
-        margin-block: 100px; 
+        margin-top: 100px; 
         padding-block: 30px;
-        background-color: #fff;
-        border-radius: 10px;
+        background-color: #eef9ff;
 
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
         align-items: center;
         gap: 40px;
 
-        box-shadow: 0px 0px 10px 0px #00000070;
-
         .About-service-title {
-            font-size: 50px;
-            word-spacing: 5px;
+            color: #040e5f;
+            max-width: 500px;
+            text-align: center;
+            font-size: clamp(25px, 5vw, 70px);
+            letter-spacing: 5px;
+            line-height: 1.7;
             font-weight: bold;
             margin: 0;
         }
 
         .About-service-cards {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
             justify-content: space-between;
 
             .About-service-card {
+                max-width: 600px;
                 padding: 20px;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
-                gap: 15px;
-                text-align: center;
+                gap: 20px;
 
                 h6 {
-                    color: #104cad;
-                    font-size: 20px;
+                    color: #040e5f;
+                    font-size: clamp(20px, 2vw, 25px);
+                    letter-spacing: 2px;
+                    font-family: var(--title-font);
+                }
+
+                p {
+                    padding-top: 20px;
+                    font-size: clamp(14px, 2vw, 16px);
+                    color: #000;
+                    font-family: var(--text-font);
+                    letter-spacing: 1px;
+                    line-height: 1.7;
                 }
             }
         }
@@ -87,6 +104,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
         color: #104cad;
         aspect-ratio: 150 / 250;
         width: 100px;
+        flex-shrink: 0;
         margin-bottom: 20px;
         
         filter: drop-shadow(0px 0px 10px #00000050);

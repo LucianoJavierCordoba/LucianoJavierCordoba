@@ -3,6 +3,7 @@ import { LINKS } from "@/utils/RedesUtils";
 import LANGUAGES from "@/i18n/index.js";
 import Modal from "@/components/Modal.astro";
 import CalandlyEmbed from "../CalandlyEmbed.astro";
+import Logo from "@/assets/logo.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.contact;
 
@@ -13,57 +14,71 @@ const calendly = LINKS['calendly'];
 
 <section class="Contact container-fluid">
 
-    <h5 class="Contact-heading">{LANG.heading_1}</h5>
+    <h4 class="Contact-heading">{LANG.heading_1}</h4>
 
-    <div class="Contact-links">
+    <div class="Contact-content">
 
-        <Modal btnClass="btn-outline-primary btn-lg" size="" id="Calendly-modal" title="Calendario">
-            <span slot="modal-btn"><i class="bi bi-calendar2-event" /> {LANG.link_1}</span> 
+        <Logo width="auto" height="130px"/>
 
-            <i class="bi bi-calendar2-event" slot="modal-header" />
-
-            <CalandlyEmbed height="500px" slot="modal-body"/>
-        </Modal>
-
-        <a class="btn btn-outline-primary btn-lg" href={tel.link} target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-telephone"></i> {tel.label}
-        </a>
+        <div class="Contact-links">
+    
+            <Modal btnClass="btn-outline-primary btn-lg" size="" id="Calendly-modal" title="Calendario">
+                <span slot="modal-btn"><i class="bi bi-calendar2-event" /> {LANG.link_1}</span> 
+    
+                <div slot="modal-header" class="Calendar-title">
+                    <i class="bi bi-calendar2-event" />
+                    <h4 >{LANG.link_1}</h4>
+                </div>
+    
+                <CalandlyEmbed height="500px" slot="modal-body"/>
+            </Modal>
+    
+            <a class="btn btn-outline-primary btn-lg" href={tel.link} target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-telephone"></i> {tel.label}
+            </a>
+    
+        </div>
 
     </div>
 
-    <a class="btn btn-success btn-lg" href="/tarifas" target="_blank" rel="noopener noreferrer" title={LANG.link_2}>
-        {LANG.link_2}
-    </a>
 
 </section>
 
 <style>
     :global([data-theme="light"]){
-        --contact-text-color: #104cad;
+        --contact-text-color: #040e5f;
     }
 
     .Contact { 
         padding-block: 50px 100px;
-        background-color: #fff;
-        /* border-radius: 10px; */
+        background-color: #eef9ff;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 50px;
 
-        box-shadow: 0px 0px 10px 0px #00000070;
+        .Contact-content {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
 
         .Contact-heading {
-            font-weight: 200;
-            font-size: 30px;
+            font-weight: bold;
+            font-size: clamp(25px, 5vw, 60px);
+            letter-spacing: 5px;
             color: var(--contact-text-color);
         }
 
         .Contact-links {
-            padding-bottom: 20px;
             display: flex;
-            gap: 50px;
+            flex-direction: column;
+            
+            gap: 30px;
 
             .btn {
                 --bs-btn-hover-border-color: var(--contact-text-color);
@@ -82,6 +97,26 @@ const calendly = LINKS['calendly'];
         .btn {
             --bs-btn-padding-x: 70px;
             --bs-btn-padding-y: 10px;
+            font-family: var(--text-font);
+            letter-spacing: 1px;
+        }
+
+        .Calendar-title {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: var( --contact-text-color);
+
+            .bi {
+                font-size: 20px;
+            }
+            h4 {
+                margin: 0;
+                font-size: 20px;
+                font-family: var(--title-font);
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
         }
     }
 
