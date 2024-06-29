@@ -8,6 +8,8 @@ const {className = '', background = {}} = Astro.props;
 
     <VideoBackground {...background}>
 
+        <slot name="video-sources" slot="video-sources" />
+
         <div class="Banner-content">
 
             <slot />

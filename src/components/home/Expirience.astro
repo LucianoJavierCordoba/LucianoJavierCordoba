@@ -6,59 +6,70 @@ import LANGUAGES from "@/i18n/index.js";
 const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
 ---
 
-<section class="Expirience container">
+<section class="Expirience container-fluid">
 
-    <h2 class="Expirience-title">{LANG.title}</h2>
+    <div class="Expirience-content container">
 
-    <p class="Expirience-heading">{LANG.heading_1}</p>
-
-    <div class="Expirience-icons">
-        {
-            GROUP_1.map(({name, image}) => {
-
-                return <img src={image.src} title={name} alt={`Logo de ${name}`} />
-            })
-        }
-    </div>
-
-    <p class="Expirience-heading">{LANG.heading_2}</p>
-
-    <div class="Expirience-icons">
-        {
-            GROUP_2.map(({name, image}) => {
-
-                return <img src={image.src} title={name} alt={`Logo de ${name}`} />
-            })
-        }
+        <h2 class="Expirience-title">{LANG.title}</h2>
+    
+        <p class="Expirience-heading">{LANG.heading_1}</p>
+    
+        <div class="Expirience-icons">
+            {
+                GROUP_1.map(({name, image}) => {
+    
+                    return <img src={image.src} title={name} alt={`Logo de ${name}`} />
+                })
+            }
+        </div>
+    
+        <p class="Expirience-heading">{LANG.heading_2}</p>
+    
+        <div class="Expirience-icons">
+            {
+                GROUP_2.map(({name, image}) => {
+    
+                    return <img src={image.src} title={name} alt={`Logo de ${name}`} />
+                })
+            }
+        </div>
     </div>
 
 </section>
 
 <style>
     .Expirience {  
-        margin-block: 100px; 
-        padding-block: 30px;
+
+        padding-block: 100px;
         background-color: #fff;
-        border-radius: 10px;
+        
+        .Expirience-content {
+            padding: 30px 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+    
+            box-shadow: 0px 0px 10px 0px #00000070;
+        }
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-
-        box-shadow: 0px 0px 10px 0px #00000070;
 
         .Expirience-title {
-            font-size: 50px;
-            word-spacing: 5px;
+            font-family: var(--title-font);
+            font-size: clamp(25px, 5vw, 50px);
+            letter-spacing: 5px;
             font-weight: bold;
             margin: 0;
         }
         .Expirience-heading {
-            font-size: 20px;
+            font-size: clamp(16px, 2vw, 20px);
+            font-family: var(--text-font);
+            letter-spacing: 1px;
+            color: #000;
             text-align: center;
             text-wrap: balance;
-            max-width: 80ch;
+            max-width: 100ch;
         }
 
         .Expirience-icons {
@@ -66,7 +77,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 50px 15px;
 
             img {
                 width: 120px;

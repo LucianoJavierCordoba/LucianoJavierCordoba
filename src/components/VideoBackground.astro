@@ -1,12 +1,15 @@
 ---
-const {velocity = 1, height = '600px', video, poster} = Astro.props;
+const {velocity = 1, height = '100%'} = Astro.props;
 ---
 
 
 <div class="Video-background">
 
     <custom-video data-velocity={velocity}>
-        <video src={video} poster={poster.src} autoplay  muted loop />
+
+        <video autoplay muted loop>
+            <slot name="video-sources" />
+        </video>
     </custom-video>
 
     <div class="Video-background-content">
@@ -20,14 +23,50 @@ const {velocity = 1, height = '600px', video, poster} = Astro.props;
 
     class CustomVideo extends HTMLElement {
 
+        mobile = false;
+
         constructor(){
             super();
 
+            window.matchMedia('(max-width: 767.98px)').addEventListener('change', (e) => {
+
+                this.mobile = e.matches;
+
+                this.#setSource();
+            });
+
+            this.mobile = window.matchMedia('(max-width: 767.98px)').matches;
+
             this.velocity = Number(this.getAttribute('data-velocity'));
 
+            this.#setSource();
+        }
+
+        #setSource(){
+            let source = null;
+
+            if(this.mobile){
+
+                source = this.querySelector('video source[data-type="mobile"]');
+            }
+            else {
+                
+                source = this.querySelector('video source[data-type="desktop"]');
+            }
+
+            const src = source.getAttribute('data-src');
+            const poster = source.getAttribute('data-poster');
+
+            this.style.setProperty('--video-background-poster', `url("${poster}")`);
+
             const video = this.querySelector('video');
+            
+            video.src = src;
+            video.setAttribute('poster', poster);
 
             video.playbackRate = this.velocity;
+
+            video.load();
         }
     }
 
@@ -38,7 +77,6 @@ const {velocity = 1, height = '600px', video, poster} = Astro.props;
 <style
     define:vars={{
         'video-background-height': `${height}`,
-        'video-background-poster': `url("${poster.src}")`
     }}
 >
     .Video-background {
@@ -62,6 +100,7 @@ const {velocity = 1, height = '600px', video, poster} = Astro.props;
 
             background-image: var(--video-background-poster);
             background-size: cover;
+            background-position: center;
 
             video {
                 width: 100%;
