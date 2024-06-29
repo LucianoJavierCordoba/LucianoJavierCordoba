@@ -1,9 +1,23 @@
 ---
 import LANGUAGES from "@/i18n/index.js";
+import "@glidejs/glide/dist/css/glide.core.min.css";
+import "@glidejs/glide/dist/css/glide.theme.min.css";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.testimonials;
 
 const TESTIMONIALS = [
+    {
+        ...LANG.testimonial_1,
+        img: null
+    },
+    {
+        ...LANG.testimonial_2,
+        img: null
+    },
+    {
+        ...LANG.testimonial_3,
+        img: null
+    },
     {
         ...LANG.testimonial_1,
         img: null
@@ -26,113 +40,238 @@ const TESTIMONIALS = [
 
     <p class="Testimonials-heading">{LANG.heading}</p>
 
-    <div class="Testimonials-content">
-        {
-            TESTIMONIALS.map(({img, name, job, text}) => {
-
-                return <div class="Testimonial-card">
-
-                    {img && <img src={img} alt={`Foto de ${name}`} />}
-
-                    <h5>{name}</h5>
-
-                    <span>{job}</span>
-
-                    <article>
+    <custom-carousel>
+        <div class="glide" id="Testimonials-carousel">
+            
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
                     {
-                        text?.map(value => {
-
-                            return <p>{value}</p>
+                        TESTIMONIALS.map(({img, name, job, text}) => {
+            
+                            return <li class="glide__slide">
+    
+                                <div class="Testimonial-card">
+                
+                                    {img && <img src={img} alt={`Foto de ${name}`} />}
+                
+                                    <h5>{name}</h5>
+                
+                                    <span>{job}</span>
+                
+                                    <article>
+                                    {
+                                        text?.map(value => {
+                
+                                            return <p>{value}</p>
+                                        })
+                                    }
+                                    </article>
+                                </div>
+                            </li>    
                         })
                     }
-                    </article>
-                </div>
-            })
-        }
-    </div>
+                </ul>
+            </div>
+    
+            <div class="carousel-controls" data-glide-el="controls">
+                <button class="btn" data-glide-dir="<">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                {
+                    TESTIMONIALS.map((_, i) => {
+    
+                        return <input class="form-check-input" type="radio" name="carousel-slides" 
+                        
+                            data-glide-dir={`=${i}`} 
+    
+                            checked={i === 0}
+                        />
+                    })
+                }
+                <button class="btn" data-glide-dir=">">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </custom-carousel>
 </section>
+
+<script>
+    import Glide from "@glidejs/glide";
+
+    class CustomCarousel extends HTMLElement {
+
+        current = 0;
+
+        constructor(){
+            super();
+
+            this.max = this.querySelector('ul').children.length - 1;
+
+            this.carousel = new Glide('#Testimonials-carousel', {
+                type: 'carousel',
+                perView: 3,
+                focusAt: 'center',
+                gap: 20,
+                breakpoints: {
+                    992: {
+                        perView: 2
+                    },
+                    768: {
+                        perView: 1
+                    }
+                }
+            });
+        
+            this.carousel.on('run', (e) => {
+               
+                if(e.direction === '='){
+
+                    this.current = Number(e.steps);
+                }
+
+                if(e.direction === '>'){
+
+                    if(this.current === this.max){
+                        this.current = 0;
+                    }
+                    else {
+                        this.current++;
+                    }
+                }
+                if(e.direction === '<'){
+
+                    if(this.current === 0){
+                        this.current = this.max;
+                    }
+                    else {
+                        this.current--;
+                    } 
+                }
+
+                this.querySelector(`input[type="radio"][data-glide-dir="=${this.current}"]`).checked = true;
+            });
+        
+            this.carousel.mount();
+        }
+    }
+
+
+    customElements.define('custom-carousel', CustomCarousel);
+</script>
 
 
 <style>
+.Testimonials {
+    margin-block: 100px; 
+    padding-block: 30px;
+    padding-inline: 30px;
+    background-color: #fff;
+    border-radius: 10px;
 
-    .Testimonials {
-        margin-block: 100px; 
-        padding-block: 30px;
-        padding-inline: 30px;
-        background-color: #fff;
-        border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
+    box-shadow: 0px 0px 10px 0px #00000070;
 
-        box-shadow: 0px 0px 10px 0px #00000070;
+    .Testimonials-title {
+        font-size: 50px;
+        word-spacing: 5px;
+        font-weight: bold;
+        margin: 0;
+    }
+    .Testimonials-heading {
+        font-size: 18px;
+        letter-spacing: 2px;
+        color: #000;
+        line-height: 1.8;
+        text-align: center;
+        text-wrap: balance;
+        max-width: 80ch;
+        font-family: var(--text-font);
+    }
 
-        .Testimonials-title {
-            font-size: 50px;
-            word-spacing: 5px;
-            font-weight: bold;
-            margin: 0;
-        }
-        .Testimonials-heading {
-            font-size: 18px;
-            letter-spacing: 2px;
-            color: #000;
-            line-height: 1.8;
-            text-align: center;
-            text-wrap: balance;
-            max-width: 80ch;
-            font-family: var(--text-font);
-        }
+    custom-carousel {
+        display: block;
+        width: 100%;
+    }
 
-        .Testimonials-content {
+    #Testimonials-carousel {
 
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+        .glide__track {
+            height: 600px;
 
-            .Testimonial-card {
-                padding: 20px;
+            ul {
+                height: 100%;
 
-                flex-basis: 250px;
-                flex-grow: 1;
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                gap: 20px;
-                border-radius: 20px;
-                box-shadow: 0px 0px 10px 0px #00000020;
-
-                img {
-                    width: 150px;
-                    height: 150px;
-                    object-fit: cover;
-                    object-position: top;
-                    border-radius: 50%;
-                }
-                h5 {
-                    font-size: 24px;
-                    margin: 0;
-                }
-                span {
-                    font-size: 18px;
-                    color: #5a5a5a;
-                    font-weight: 200;
-                    text-align: center;
-                }
-
-                article p {
-                    font-family: var(--text-font);
-                    font-weight: 200;
-                    font-size: 14px;
-                    letter-spacing: 2px;
-                    color: #000;
-                    line-height: 1.8;
+                li {
+                    padding: 5px;
                 }
             }
         }
+
+        .Testimonial-card {
+            height: 100%;
+            padding: 20px;
+    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            gap: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 0px #00000020;
+    
+            img {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 50%;
+            }
+            h5 {
+                font-size: 25px;
+                letter-spacing: 2px;
+                margin: 0;
+            }
+            span {
+                font-family: var(--text-font);
+                font-size: 18px;
+                letter-spacing: 1px;
+                color: #5a5a5a;
+                font-weight: 200;
+                text-align: center;
+            }
+    
+            article p {
+                font-family: var(--text-font);
+                font-weight: 200;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: #000;
+                line-height: 1.8;
+            }
+        }
     }
+
+    .carousel-controls {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        .btn {
+            font-size: 20px;
+            color: #040e5f;
+        }
+        .form-check-input:checked {
+            background-color: #040e5f;
+            border-color: #040e5f;
+        }
+    }
+}
 </style>
