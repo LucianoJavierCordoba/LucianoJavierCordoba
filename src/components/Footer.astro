@@ -1,7 +1,8 @@
 ---
 import Logo from "@/assets/logo.astro";
-import { REDES, COPYRIGHT } from "@/config/index.js";
+import { REDES, COPYRIGHT, ADDRESS } from "@/config/index.js";
 import LANGUAGES from "@/i18n/index.js";
+import { LINKS } from "@/utils/RedesUtils";
 
 const REDES_LINKS = [
     {
@@ -14,7 +15,7 @@ const REDES_LINKS = [
         name: 'Instagram',
         url: REDES.instagram,
         bs_icon: 'bi-instagram',
-        color: 'linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7)'
+        color: '#ee2a7b'
     },
     {
         name: 'Facebook',
@@ -53,12 +54,15 @@ const FOOTER_LINKS = [
         text: LANG.link_5,//¿Tienes alguna sugerencia?
         url: '/web-form'
     },
-]
+];
+
+const tel = LINKS['telephone'];
+const email = LINKS['contacto'];
 ---
 
 <footer class="Footer">
 
-    <section class="container">
+    <section class="Footer-content container">
 
         <ul class="Footer-links">
             {
@@ -70,6 +74,21 @@ const FOOTER_LINKS = [
                 })
             }  
         </ul>
+
+        <div class="Footer-contacto">
+            <h2>CONTACTO</h2>
+
+            <div>
+                <a href={email.link}>{email.label}</a>
+                <a href={tel.link}>{tel.label}</a>
+            </div>
+
+            <a href={ADDRESS.googlemaps} target="_blank" rel="noopener noreferrer">
+                {
+                    ADDRESS.label.split('-').map(text => <span>{text}</span>)
+                }
+            </a>
+        </div>
 
         <div class="Footer-redes-content">
 
@@ -103,39 +122,50 @@ const FOOTER_LINKS = [
     }
     :global([data-theme="dark"]) {
 
-        --footer-bg: #6f8ed3;
+        --footer-bg: #fff;
     }
     :global([data-theme="light"]) {
 
-        --footer-bg: #6f8ed3;
+        --footer-bg: #fff;
     }
 
     .Footer {
         padding-block: 50px 10px;
         background-color: var(--footer-bg);
 
-        section {
+        .Footer-content {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap-reverse;
+            justify-content: space-evenly;
+            gap: 50px 20px;
+            padding-bottom: 50px;
         }
 
         .Footer-links {
+            max-width: 300px;
             display: flex;
             flex-direction: column;
             gap: 20px;
             list-style: none;
 
+            li {
+                height: 40px;
+            }
+            
             a {
                 display: block;
+                white-space: nowrap;
                 text-decoration: none;
-                font-size: 18px;
-                color: #fff;
-                /* text-shadow: 0px 0px 2px #000000; */
-                transition: font-size 0.4s;
-                line-height: 22px;
+                font-size: 16px;
+                letter-spacing: 1px;
+                font-family: var(--text-font);
+                color: #000;
+                transition: font-size 0.1s;
+                line-height: 2;
             }
             a:hover {
-                font-size: 20px;
+                font-size: 18px;
+                color: #0096fc;
             }
         }
 
@@ -143,37 +173,65 @@ const FOOTER_LINKS = [
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 30px;
 
             .Footer-redes {
                 padding-inline: 20px;
                 display: flex;
-                gap: 40px;
+                gap: 50px;
                 list-style: none;
     
                 a {
                     text-decoration: none;
-                    font-size: 22px;
-
+                    font-size: 30px;
+                    
                     & i:before {
-                        transition: transform 0.4s;
-                        color: #fff;
-                        filter: drop-shadow(0px 0px 1px #00000070);
+                        transition: transform 0.1s;
+                        filter: drop-shadow(0px 0px 1px #00000020);
                     }
                     &:hover i:before {
-                        transform: scale3d(1.1, 1.1, 1);
+                        transform: scale3d(1.2, 1.2, 1);
                     }
                 }
                 
             }
         }
 
-        .Footer-copyright {
-            color: #fff;
-            padding-top: 20px;
-            text-align: center;
+        .Footer-contacto {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 30px;
 
+            a {
+                display: block;
+                text-decoration: none;
+                text-wrap: balance;
+                letter-spacing: 1px;
+                font-size: 16px;
+                font-family: var(--text-font);
+                color: #000;
+                transition: font-size 0.1s;
+                line-height: 2;
+                max-width: 30ch;
+
+                span {
+                    display: block;
+                }
+
+                &:hover {
+                    color: #0096fc;
+                }
+            }
+        }
+
+        .Footer-copyright {
+            padding-top: 20px;
+            
             p {
+                text-align: center;
+                color: #000000;
+                font-family: var(--text-font);
                 margin: 0;
             }
         }

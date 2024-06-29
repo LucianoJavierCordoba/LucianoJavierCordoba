@@ -46,7 +46,7 @@ const LINKS = [
 <style>
 	:global(:root) {
 
-		--navigation-border-top-color: #007077;
+		--navigation-border-top-color: #0096fc;
 	}
 	:global([data-theme="dark"]) {
 
@@ -62,7 +62,6 @@ const LINKS = [
 	.Navigation {
 		position: relative;
 		z-index: 5000;
-		height: var(--nav-height, initial);
 		border-top: 3px solid var(--navigation-border-top-color);
 		background-color: var(--navigation-bg);
 		box-shadow: 0px 0px 10px 0px var(--navigation-shadow-color);
@@ -70,13 +69,69 @@ const LINKS = [
 		position: sticky;
 		top: 0;
 
+		padding-block: 10px;
+
 		.Navigation-content {
 			justify-content: end;
 
 			ul {
+				gap: 30px;
+				color: #777;
 
-				gap: 20px;
+				a {
+					padding-inline: 10px;
+					font-size: 20px;
+					font-family: var(--text-font);
+					letter-spacing: 2px;
+				}
+				a:hover {
+					color: #0096fc;
+				}
+
+				@media (min-width: 992px) {
+
+					a {
+						position: relative;
+					}
+					a:hover::after {
+						content: "";
+						position: absolute;
+						animation: anchor-line-grow 0.5s;
+						animation-fill-mode: forwards;
+						left: 0;
+						right: 0;
+						margin-inline: auto;
+						bottom: 0;
+						border: 1px solid #0096fc;
+					}
+				}
+
+				@media (max-width: 991.98px) { 
+
+					padding-top: 30px;
+
+					a {
+						font-size: 20px;
+						font-family: var(--text-font);
+						letter-spacing: 2px;
+					}
+					a:hover {
+						color: #fff;
+						background-color: #0096fc;
+						border-radius: 5px;
+					}
+				}
 			}
+
+		}
+	}
+
+	@keyframes anchor-line-grow {
+		from {
+			width: 0%;
+		}
+		to {
+			width: 100%;
 		}
 	}
 </style>

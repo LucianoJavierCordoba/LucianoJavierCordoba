@@ -1,5 +1,5 @@
 ---
-const {velocity = 1, height = 600, video, poster} = Astro.props;
+const {velocity = 1, height = '600px', video, poster} = Astro.props;
 ---
 
 
@@ -37,7 +37,7 @@ const {velocity = 1, height = 600, video, poster} = Astro.props;
 
 <style
     define:vars={{
-        'video-background-height': `${height}px`,
+        'video-background-height': `${height}`,
         'video-background-poster': `url("${poster.src}")`
     }}
 >

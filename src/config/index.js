@@ -7,3 +7,8 @@ export const NAME = config.name;
 export const COPYRIGHT = config.copyright;
 
 export const SERVICES_PRICING = config['services-pricing'];
+
+export const ADDRESS = {
+    googlemaps: config['address_googlemaps'],
+    label: config['address']
+}

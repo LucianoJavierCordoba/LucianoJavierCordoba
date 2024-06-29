@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import video from "@assets/videos/banner-home/banner-home.webm";
-import poster from "@assets/videos/banner-home/banner-home.webp";
+import video_1 from "@assets/videos/banner.mp4";
+import video_2 from "@assets/videos/banner-2.mp4";
+import poster_1 from "@assets/videos/banner.jpg";
+import poster_2 from "@assets/videos/banner-2.jpg";
 import Banner from "@components/Banner.astro";
 import LANGUAGES from "@/i18n/index.js";
 import Expirience from "@/components/home/Expirience.astro";
@@ -19,17 +21,25 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
 <Layout title={NAME}>
 	
-    <Banner background={{video, poster}}>
+    <Banner background={{video: video_1, poster: poster_1, height: '100%'}}>
 
-        <h1 class="banner-title">{LANG.title}</h1>
+        <h1 class="banner-title">{LANG.banner_1.title}</h1>
         
-        <h2 class="banner-subtitle" set:html={LANG.subtitle}></h2>
+        <h2 class="banner-subtitle" set:html={LANG.banner_1.subtitle}></h2>
 
         <!-- <h3 class="banner-heading">{LANG.heading}</h3> -->
 
     </Banner>
 
-    <AboutMe />
+    <Banner className="Banner-2" background={{video: video_2, poster: poster_2, height: '100%'}}>
+
+        <h1 class="banner-title">{LANG.banner_2.title}</h1>
+
+        <h3 class="banner-heading">{LANG.banner_2.heading}</h3>
+
+    </Banner>
+
+    <!-- <AboutMe /> -->
     
     <Expirience />
 
@@ -43,51 +53,82 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
 <style>
 
-    :global(.Banner-content) {
-
-        gap: 30px;
+    :global(.Banner){
         
-    }
-    :global(custom-video video) {
+        height: 50vw;
+        max-height: 90vh;
+        
+        .Banner-content {
+            --banner-content-padding: 50px 50px;
+            align-self: self-start;
+            align-items: center;
+        }
 
-        gap: 30px;
-        filter: blur(5px);
+        @media (max-width: 767.98px) {
+            height: 40vh;
+            
+            custom-video video {
+                object-position: 90%;
+            }
+
+            .Banner-content {
+                align-self: center;
+            }
+        }
     }
     .banner-title {
-        color: #001a97;
-        color: #666683;
+        color: #fff;
         font-weight: bolder;
-        font-size: 80px;
+        font-size: clamp(25px, 5vw, 80px);
         text-align: center;
+        max-width: 25ch;
         text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
         line-height: 1.5;
-
         
+        @media (max-width: 767.98px){
+            max-width: 30ch;
+        }
     }
     .banner-subtitle {
-        color: #05aacf;
-        color: #3f51b5;
+        margin-top: auto;
+        color: #000;
         font-weight: bold;
         text-align: center;
-        font-size: 45px;
+        font-family: var(--text-font);
+        font-size: clamp(14px, 3vw, 35px);
         text-shadow: 0px 8px 5px #00000020;
-        letter-spacing: 5px;
+        letter-spacing: 1px;
+        line-height: 1.8;
         text-wrap: balance;
 
         & :global(div) {
-            color: #fb6535;
-            color: #3f51b5;
+            color: #3538fb;
         }
     }
     .banner-heading {
         margin-top: auto;
-        font-weight: 600;
+        color: #8d2666;
+        font-weight: 200;
         text-align: center;
-        font-size: 30px;
-        color: #fff;
-        text-shadow: 0px 0px 5px #000;
+        font-family: var(--text-font);
+        max-width: 50ch;
+        font-size: 20px;
+        line-height: 1.7;
+        text-shadow: 0px 0px 5px #00000020;
         letter-spacing: 2px;
+    }
+
+    :global(.Banner-2){
+
+        .banner-title, .banner-heading {
+            text-align: left !important;
+        }
+
+        .Banner-content {
+            align-items: start !important;
+            --banner-content-padding: 50px 50px;
+        }
     }
 
     :global(.Contact) {

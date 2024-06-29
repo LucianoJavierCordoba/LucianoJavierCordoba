@@ -41,24 +41,24 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 	* {
 		padding: 0;
 		margin: 0;
 	}
 	:root {
-		--nav-height: 85px;
-		--bs-body-bg: #aec4dc;
-		--titles-font: Rift-Soft;
+		--nav-height: 100px;
+		--bs-body-bg: #cacaca;
+		--title-font: "Rift-Soft", sans-serif;
+		--text-font:  "Montserrat", sans-serif;
 	}
 
 	h1, h2, h3, h4 {
-		font-family: Rift-Soft, Arial, Helvetica, sans-serif;
+		font-family: var(--title-font);
 	}
 
 	p, a, button, h5, h6  {
-		font-family: "Montserrat", sans-serif;
+		font-family: var(--title-font);
 		font-optical-sizing: auto;
 		font-style: normal;
 	}

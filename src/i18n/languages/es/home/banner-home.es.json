@@ -1,7 +1,18 @@
 {
-    "title": "Contrata experiencia, compromiso y efectividad.",
+    "banner_1": {
 
-    "subtitle": "La pieza que falta en tu empresa <div>desde 740€ / mes</div>",
+        "title": "Contrata experiencia, compromiso y efectividad.",
     
-    "heading": "Pero antes, te invito a conocerme."
+        "subtitle": "Consigue la pieza que falta en tu empresa <div>desde 740€ / mes</div>",
+        
+        "heading": "Pero antes, te invito a conocerme."
+    },
+    "banner_2": {
+
+        "title": "Ofrezca mejores experiencias a sus clientes",
+    
+        "subtitle": "",
+
+        "heading": "Complemente sus equipos internos con un profesional enfocado en mejorar la eficiencia de sus procesos de interacción, acercamiento y generación de nuevos clientes."
+    }
 }
