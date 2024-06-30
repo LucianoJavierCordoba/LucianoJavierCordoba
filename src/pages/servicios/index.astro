@@ -7,6 +7,7 @@ import SIZES from "@/utils/16x9-Resolution.js";
 
 
 import LANGUAGES from "@/i18n/index.js";
+import Contact from "@/components/home/Contact.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios.home;
 
@@ -46,17 +47,11 @@ const services = [
 
 <Layout title="Servicios">
 
-    <Banner background={{video, poster}}>
+    <section class="Servicios">
 
-        <h1 class="banner-title">{LANG.banner.title}</h1>
-        
-        <h2 class="banner-subtitle" set:html={LANG.banner.subtitle}></h2>
+        <h1 class="Servicios-title">{LANG.banner.title}</h1>
 
-    </Banner>
-
-
-    <section class="Servicios-content">
-
+        <div class="Servicios-content">
         {
             LANG.cards.map(({title, description}, i) => {
 
@@ -73,58 +68,50 @@ const services = [
                 </div>
             })
         }
+        </div>
 
     </section>
+
+    <Contact />
 
 </Layout>
 
 <style>
-    :global(.Banner-content) {
 
-        gap: 30px;
-    }
-    :global(custom-video video) {
+.Servicios {
+    padding-inline: 50px;
+    padding-block: 50px 100px;
+    background-color: #f0f8ff;
 
-        gap: 30px;
-        filter: blur(5px);
-    }
-    .banner-title {
+    .Servicios-title {
         margin-inline: auto;
         font-weight: bolder;
-        font-size: 70px;
         text-align: center;
-        /* text-shadow: 0px 8px 5px #00000050; */
         letter-spacing: 5px;
         line-height: 1.5;
-        color: #2f4daa;
+        color: #040e5f;
         max-width: 50ch;
+        font-size: clamp(30px, 5vw, 80px);
+        text-shadow: 0px 8px 5px #00000020;
+        text-wrap: balance;
+        display: none;
     }
-    .banner-subtitle {
-        margin-inline: auto;
-        font-weight: bold;
-        text-align: center;
-        font-size: 35px;
-        line-height: 1.4;
-        /* text-shadow: 0px 8px 5px #00000050; */
-        letter-spacing: 5px;
 
-        max-width: 60ch;
-        color: #fff;
-
-        & :global(span) {
-            color: #f28c20;
-        }
-    }
 
 
     .Servicios-content {
-        padding: 100px 50px;
         display: grid;
         grid-template-columns: repeat(3, minmax(200px, 350px));
         justify-content: center;
         place-items: stretch center;
-        gap: 50px 50px;
-        background-color: #f0f8ff;
+        gap: 100px 70px;
+
+        @media (max-width: 991.98px) {
+            grid-template-columns: repeat(2, minmax(200px, 350px));
+        }
+        @media (max-width: 767.98px) {
+            grid-template-columns: repeat(1, minmax(200px, 350px));
+        }
 
         .Servicios-card {
             overflow: hidden;
@@ -136,6 +123,7 @@ const services = [
 
             display: flex;
             flex-direction: column;
+            gap: 10px;
 
             video, p {
                 width: 100%;
@@ -145,21 +133,49 @@ const services = [
                 padding-inline: 20px;
             }
 
+            h3 {
+                font-weight: bold;
+                color: #2f4daa;
+                text-align: center;
+                font-size: 25px;
+                letter-spacing: 2px;
+            }
+
+            p {
+                font-family: var(--text-font);
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: #000;
+                line-height: 1.8;
+            }
+
             a {
                 display: block;
                 padding-top: 20px;
                 margin-top: auto;
                 text-decoration: none;
-                font-family: var(--titles-font);
                 letter-spacing: 1px;
+                color: #2f4daa;
+                font-family: var(--text-font);
+                font-weight: 600;
+                font-size: 16px;
+                
+                &::first-letter {
+                    text-transform: capitalize;
+                }
+
+                &:hover {
+                    color: #0096fc;
+                }
 
                 &::after {
                     content: '\f285';
                     vertical-align: bottom;
-                    font-size: 0.9em;
+                    font-size: 1em;
                     font-family: 'bootstrap-icons';
                 }
             }
         }
     }
+}
 </style>

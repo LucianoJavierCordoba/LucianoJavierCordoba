@@ -18,7 +18,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['pay-methods'];
             {
                 PAY_ICONS.map(({name, image}) => {
     
-                    return <img src={image.src} alt={`Logo ${name}`} />
+                    return <img loading="lazy" src={image.src} alt={`Logo ${name}`} />
                 })
             }
         </div>
@@ -47,16 +47,17 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['pay-methods'];
             gap: 50px;
 
             .Pay-methods-title {
-                font-size: 40px;
-                letter-spacing: 2px;
-                font-family: var(--titles-font);
+                font-weight: bold;
+                font-size: clamp(25px, 5vw, 60px);
+                letter-spacing: 5px;
+                font-family: var(--title-font);
             }
 
             .Pay-methods-icons {
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 20px 150px;
+                gap: 30px 150px;
     
                 img {
                     width: 200px;
@@ -70,6 +71,14 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['pay-methods'];
                 list-style-type: "- ";
                 font-size: 14px;
                 text-align: center;
+
+                font-family: var(--text-font);
+                letter-spacing: 1px;
+                
+                li {
+                    padding-bottom: 10px;
+                    max-width: 80ch;
+                }
             }
         }
 

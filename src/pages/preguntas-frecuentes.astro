@@ -14,16 +14,7 @@ const LANG = LANGUAGES.get(locale)?.preguntas_frecuentes.banner;
 
 <Layout title="Preguntas frecuentes">
 
-    <Banner background={{video, poster, height: 650}} >
-
-        <h1 class="banner-title">{LANG.title}</h1>
-        
-        <h2 class="banner-subtitle" set:html={LANG.subtitle}></h2>
-
-    </Banner>
-
     <QuestionAndAnwsers />
-
 
     <Contact />
 
@@ -31,34 +22,5 @@ const LANG = LANGUAGES.get(locale)?.preguntas_frecuentes.banner;
 
 <style>
 
-    :global(.Video-background video) {
-        object-position: center;
-    }
-    :global(custom-video video) {
-
-        gap: 30px;
-        filter: blur(3px);
-    }
-    .banner-title {
-        margin-top: 20px;
-        font-weight: bolder;
-        font-size: 100px;
-        text-align: center;
-        /* text-shadow: 0px 8px 5px #00000050; */
-        letter-spacing: 5px;
-        line-height: 2;
-        color: #fff;
-    }
-
-    .banner-subtitle {
-        margin-top: 60px;
-        font-weight: bold;
-        text-align: center;
-        font-size: 45px;
-        /* text-shadow: 0px 8px 5px #00000050; */
-        letter-spacing: 5px;
-        line-height: 1.5;
-        color: #333291;
-    }
 
 </style>

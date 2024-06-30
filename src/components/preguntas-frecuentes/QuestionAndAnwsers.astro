@@ -60,6 +60,7 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
         .content {
             display: flex;
             flex-direction: column;
+            gap: 20px;
 
             details {
                 padding: 20px 20px;
@@ -68,8 +69,9 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
                 summary {
                     display: block;
                     text-align: center;
-                    font-size: 30px;
-                    color: #5b5b5b;
+                    font-size: clamp(20px, 5vw, 30px);
+                    letter-spacing: 2px;
+                    color: #040e5f;
                     text-wrap: balance;
                 }
 
@@ -79,23 +81,27 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
                     max-width: 80ch;
 
                     p {
-                        font-size: 18px;
+                        font-family: var(--text-font);
+                        font-size: clamp(14px, 2vw, 16px);
                         letter-spacing: 1px;
+                        color: #000;
+                        line-height: 1.8;
                     }
 
                     .helper-links {
                         display: flex;
+                        flex-wrap: wrap;
                         gap: 15px;
                         justify-content: start;
 
                         a {
                             text-decoration: none;
-
-                            color: #03498b;
-                            font-size: 18px;
+                            font-family: var(--text-font);
+                            color: #040e5f;
+                            font-size: clamp(14px, 2vw, 16px);
 
                             &:hover {
-                                color: #056ed1;
+                                color: #0096fc;
                             }
                         }
                     }
@@ -103,8 +109,9 @@ const QUESTIONS = LANGUAGES.get(locale)?.preguntas_frecuentes.questions;
                     hr {
                         width: 90%;
                         margin-inline: auto;
-                        border-color: #126077;
-                        border-width: 3px;
+                        border-color: #040e5f;
+                        border-width: 2px;
+                        opacity: 1;
                     }
                 }
 

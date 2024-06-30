@@ -22,7 +22,7 @@ const calendly = LINKS['calendly'];
 
         <div class="Contact-links">
     
-            <Modal btnClass="btn-outline-primary btn-lg" size="" id="Calendly-modal" title="Calendario">
+            <Modal btnClass="btn-outline-primary btn-lg" id="Calendly-modal" title={LANG.link_1}>
                 <span slot="modal-btn"><i class="bi bi-calendar2-event" /> {LANG.link_1}</span> 
     
                 <div slot="modal-header" class="Calendar-title">
@@ -33,7 +33,7 @@ const calendly = LINKS['calendly'];
                 <CalandlyEmbed height="500px" slot="modal-body"/>
             </Modal>
     
-            <a class="btn btn-outline-primary btn-lg" href={tel.link} target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-outline-primary btn-lg" href={tel.link} title={tel.label} target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-telephone"></i> {tel.label}
             </a>
     

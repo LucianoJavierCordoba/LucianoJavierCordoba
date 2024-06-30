@@ -1,5 +1,5 @@
 import testimonials from "./home/testimonials.es.json";
-import about_me from "./about-me.es.json";
+import about_me from "./sobre-mi.es.json";
 import banner_home from "./home/banner-home.es.json";
 import expirience from "./home/expirience.es.json";
 import footer from "./footer.es.json";
