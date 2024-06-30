@@ -40,16 +40,30 @@ if(hideEventDetails) url.searchParams.set('hide_event_type_details', '1');
 
             this.url = this.getAttribute('data-url');
 
-            const iframe = document.createElement('iframe');
+            const observer = new IntersectionObserver((e) => {
 
-            iframe.src = this.url;
+                const [entry] = e;
+                
+                if(entry.isIntersecting){
+                    
+                    const iframe = document.createElement('iframe');
+        
+                    iframe.src = this.url;
+        
+                    iframe.addEventListener('load', (e) => {
+        
+                        console.log('load iframe')
+                    });
+        
+                    this.appendChild(iframe);
 
-            iframe.addEventListener('load', (e) => {
+                    observer.disconnect();
+                }
 
-                console.log('load iframe')
-            });
 
-            this.appendChild(iframe);
+            }, {root: null, rootMargin: '0px', threshold: 0});
+
+            observer.observe(this);
         }
     }
 

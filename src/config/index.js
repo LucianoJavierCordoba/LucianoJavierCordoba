@@ -11,4 +11,6 @@ export const SERVICES_PRICING = config['services-pricing'];
 export const ADDRESS = {
     googlemaps: config['address_googlemaps'],
     label: config['address']
-}
+};
+
+export const SEO = config.seo;

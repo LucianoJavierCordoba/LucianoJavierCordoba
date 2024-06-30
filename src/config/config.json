@@ -45,5 +45,22 @@
             "middle": "650€",
             "full": "1149€"
         }
+    },
+
+    "seo": {
+        "title": "Luciano Javier Córdoba",
+        "description": "Encuentra un Profesional lider en de experiencia de clientes, prospección B2B y dirección de equipos de ventas. La pieza que falta en tu empresa, por un coste que puedas permitirte. Ahorra y conecta con un agente 100% remoto.",
+        "type": "website",
+        "url": "https://lucianocordoba.com/",
+        "image": {
+            "url": "/og-image-2.png",
+            "width": "1200",
+            "height": "600",
+            "type": "image/png",
+            "alt": "Logo de Luciano Javier Córdoba, líder en experiencia de clientes, prospección B2B y dirección de equipos de ventas"
+        },
+        "locale": "es_AR",
+        "keywords": "Luciano Javier Córdoba, Experiencia de Clientes, Prospección B2B, Dirección de Equipos de Ventas, Agente Remoto, Consultoría Empresarial, Liderazgo en Ventas, Optimización de Ventas, Servicios de Consultoría B2B, Estrategias de Ventas Remotas, Asesoría en Ventas, Mejora de la Experiencia del Cliente, Gestión de Equipos de Ventas, Prospección de Clientes, Desarrollo de Negocios B2B, Ventas y Marketing Digital, Soluciones de Ventas para Empresas, Coaching de Ventas",
+        "robots": "index"
     }
 }

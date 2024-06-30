@@ -28,18 +28,25 @@ const {velocity = 1, height = '100%'} = Astro.props;
         constructor(){
             super();
 
+            this.mobile = window.matchMedia('(max-width: 767.98px)').matches;
+            this.video = this.querySelector('video');
+            this.velocity = Number(this.getAttribute('data-velocity'));
+
             window.matchMedia('(max-width: 767.98px)').addEventListener('change', (e) => {
 
                 this.mobile = e.matches;
 
                 this.#setSource();
+
+                this.video.load();
             });
 
-            this.mobile = window.matchMedia('(max-width: 767.98px)').matches;
-
-            this.velocity = Number(this.getAttribute('data-velocity'));
-
             this.#setSource();
+
+            document.addEventListener('DOMContentLoaded', () => {
+
+                this.video.load();
+            });
         }
 
         #setSource(){
@@ -58,15 +65,11 @@ const {velocity = 1, height = '100%'} = Astro.props;
             const poster = source.getAttribute('data-poster');
 
             this.style.setProperty('--video-background-poster', `url("${poster}")`);
-
-            const video = this.querySelector('video');
             
-            video.src = src;
-            video.setAttribute('poster', poster);
+            this.video.src = src;
+            this.video.setAttribute('poster', poster);
 
-            video.playbackRate = this.velocity;
-
-            video.load();
+            this.video.playbackRate = this.velocity;
         }
     }
 

@@ -18,7 +18,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
             {
                 GROUP_1.map(({name, image}) => {
     
-                    return <img src={image.src} title={name} alt={`Logo de ${name}`} />
+                    return <img src={image.src} title={name} loading="lazy" alt={`Logo de ${name}`} />
                 })
             }
         </div>
@@ -29,7 +29,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
             {
                 GROUP_2.map(({name, image}) => {
     
-                    return <img src={image.src} title={name} alt={`Logo de ${name}`} />
+                    return <img src={image.src} title={name} loading="lazy" alt={`Logo de ${name}`} />
                 })
             }
         </div>
