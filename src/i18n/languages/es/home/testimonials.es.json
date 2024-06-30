@@ -9,7 +9,8 @@
         "text": [
             "Trabajar con Luciano ayudó a que mi trabajo sea mucho más fácil y de más calidad. Es una persona que siempre te va a brindar todas las herramientas que esten a su alcance para ayudarte y que da el 100% en cada proyecto.",
             "Nunca tuvo problema en explicarme las cosas varias veces cuando no las entendía, o en preguntarme si estaba todo bien con mi trabajo. Sin dudas esto hizo que yo trabajara en un ambiente más relajado y gane confianza en el ámbito profesional."
-        ]
+        ],
+        "details": "Colaboradora perteneciente al equipo de prospección B2B, liderado por Luciano. Bhoopy Force, Argentina."
     },
     "testimonial_2": {
         "name": "Leo Magallanes",
@@ -18,14 +19,35 @@
             "Luciano tiene una gran energía y siempre está predispuesto. Es de aquellas personas que te hace sentir que puedes confiar en él para lo que sea que necesites.",
             "3 conocimientos esenciales que, a mi parecer, deben existir en todo equipo.",
             "Sin dudas Luciano lo tiene y, lo que es más importante, sabe contagiar, generar y liderar un equipo desde esta base."
-        ]
+        ],
+        "details": "Compañeros en campañas de generación de leads y ventas en EKALON, Tu equipo remoto, Andorra."
     },
     "testimonial_3": {
         "name": "Javier Castillo",
-        "job": "Tu Media Naranja - Asesor de Experiencia de clientes",
+        "job": "Tu Media Naranja - Supervisor de experiencia de clientes",
         "text": [
             "Trabajar con Luciano fue un gran alivio en lo personal, es una persona que entiende todo muy rapido y siempre está listo para hacer su aporte en el momento justo. Un generador de buenos resultados. Un gran empleado y un destacado compañero."
-        ]
+        ],
+        "details": "Supervisor en campaña de captación de clientes. - Tu Media Naranja, Chile."
+    },
+    "testimonial_4": {
+        "name": "Leonel Orellana",
+        "job": "ANSES - Atención a Clientes",
+        "text": [
+            "Luciano es alguien que tiene las cosas claras desde el primer momento, y sabe resolver cualquier situación en la que se encuentra. Brindando un ambiente de compañerismo y seguridad, y permitiendo que uno se sienta cómodo de trabajar con él.",
+            "Es Asertivo, Responsable, Constante y Comprometido, demostrándolo diariamente en su trabajo y en sus actividades personales.",
+            "Es una persona que genera alegría, buen clima y confianza de poder contar con él en todo momento ya que siempre estuvo disponible para cuando necesitaba una ayuda o una consulta."
+        ],
+        "details": "Compañero en campaña de atención a clientes. - Administración Nacional de Seguridad Social - ANSES, Argentina"
+    },
+    "testimonial_5": {
+        "name": "Luciano Martin Villafañe",
+        "job": "TELECOM - Atención a Clientes",
+        "text": [
+            "Durante nuestro tiempo trabajando juntos, Luciano demostró un compromiso excepcional con sus responsabilidades y una habilidad notable para trabajar en equipo. Su capacidad para abordar los desafíos con una actitud positiva y proactiva es realmente admirable.",
+            "Además de su proactividad y habilidades de trabajo en equipo, Luciano posee un sólido conjunto de habilidades técnicas que le permiten desempeñarse de manera sobresaliente en la interacción con clientes."
+        ],
+        "details": "Colega en campañas de atención a Clientes. para Grupo TELECOM - Argentina"
     }
 }
 
