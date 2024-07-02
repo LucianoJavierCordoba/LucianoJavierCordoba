@@ -2,6 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 import video from "@assets/videos/prospeccion/prospeccion.webm";
 import poster from "@assets/videos/prospeccion/prospeccion.webp";
+import video_md from "@assets/videos/prospeccion/prospeccion-mobile.mp4";
+import poster_md from "@assets/videos/prospeccion/prospeccion-mobile.png";
 import Banner from "@components/Banner.astro";
 
 import LANGUAGES from "@/i18n/index.js";
@@ -19,7 +21,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 
 <Layout title="Prospeccion B2B">
 
-    <Banner background={{video, poster}}>
+    <Banner>
+
+        <Fragment slot="video-sources">
+            <source data-type="desktop" data-src={video} data-poster={poster.src}/>
+            <source data-type="mobile" data-src={video_md} data-poster={poster_md.src}/>
+        </Fragment>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>
         
@@ -34,7 +41,10 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
         <div class="About-service-content">
             <Quote text={LANG.quote} />
 
-            <Stats LANG={LANG} />
+            <div class="extra-content">
+
+                <Stats LANG={LANG} />
+            </div>
         </div>
 
         <TechStack icons={STACK_1} title={LANG["tech-stack-title"]}/>
@@ -49,31 +59,52 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 </Layout>
 
 <style>
-    :global(.Banner-content) {
+    :global(.Banner) {
 
-        gap: 30px;
+        height: 50vw;
+        max-height: 90vh;
+
+        .Banner-content {
+            --banner-content-padding: 50px 50px;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 767.98px) {
+
+            height: 60vh;
+
+            .Banner-content {
+                --banner-content-padding: 50px 50px;
+                align-self: center;
+            }
+
+            video {
+                object-position: bottom;
+            }
+        }
     }
     .banner-title {
         margin-inline: auto;
         font-weight: bolder;
-        font-size: 70px;
+        font-size: clamp(40px, 8vw, 130px);
         text-align: center;
         text-shadow: 0px 8px 5px #00000050;
         letter-spacing: 5px;
         line-height: 1.5;
-        color: #37738b;
+        color: #ffffff;
         max-width: 50ch;
     }
     .banner-subtitle {
         margin-inline: auto;
         font-weight: bold;
         text-align: center;
-        font-size: 35px;
-        text-shadow: 0px 8px 5px #00000050;
+        font-size: clamp(18px, 3vw, 35px);
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
 
         max-width: 60ch;
-        color: #fff;
+        color: #666;
 
         & :global(span) {
             color: #1da1d2;
@@ -91,13 +122,22 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
         .About-service-content {
             padding-inline: 50px;
             padding-bottom: 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        } 
+            display: flex;
+            flex-wrap: wrap;
+            
+            @media (max-width: 767.98px) {
+                padding-inline: 20px;
+            }
+
+            .extra-content {
+                min-width: 300px;
+                flex-grow: 1;
+            }
+        }
+        
     }
     .About-service :global(.Tech-stack){
-        background-color: #e4e4e4aa;
-        --tech-icon-width: 100px;
-        --tech-icon-gap: 50px;
+        background-color: #ffffffaa;
+        --tech-icon-height: 30px;
     }
 </style>

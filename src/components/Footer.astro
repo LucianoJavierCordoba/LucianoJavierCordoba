@@ -69,7 +69,7 @@ const email = LINKS['contacto'];
                 FOOTER_LINKS.map(({url, text}) => {
 
                     return <li>
-                        <a href={url}>{text}</a>
+                        <a href={url} title={text}>{text}</a>
                     </li>
                 })
             }  
@@ -79,8 +79,8 @@ const email = LINKS['contacto'];
             <h2>CONTACTO</h2>
 
             <div>
-                <a href={email.link}>{email.label}</a>
-                <a href={tel.link}>{tel.label}</a>
+                <a href={email.link} title={email.label}>{email.label}</a>
+                <a href={tel.link} title={tel.label}>{tel.label}</a>
             </div>
 
             <a href={ADDRESS.googlemaps} target="_blank" rel="noopener noreferrer">

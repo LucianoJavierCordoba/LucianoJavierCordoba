@@ -9,7 +9,8 @@ const {LANG, price} = Astro.props;
     <article class="Service-price-content">
 
         <div class="Service-card">
-            <span>{LANG.middle.title}</span>
+
+            <span class="Service-card-title">{LANG.middle.title}</span>
 
             <span>{LANG.middle.hours.at(0)}</span>
 
@@ -28,7 +29,8 @@ const {LANG, price} = Astro.props;
         </div>
 
         <div class="Service-card">
-            <span>{LANG.full.title}</span>
+            
+            <span class="Service-card-title">{LANG.full.title}</span>
 
             <span>{LANG.full.hours.at(0)}</span>
 
@@ -55,23 +57,40 @@ const {LANG, price} = Astro.props;
         padding: 150px 50px;
         background-color: #fff;
 
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 30px;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        @media (max-width: 991.98px) {
+            flex-wrap: wrap;
+        }
 
         .Service-price-title {
+            flex-shrink: 1;
             text-align: center;
-            font-size: clamp(25px, 5vw, 70px);
+            font-size: clamp(35px, 5vw, 70px);
             font-weight: bold;
             font-family: var(--title-font);
             letter-spacing: 5px;
             text-wrap: balance;
+            max-width: 18ch;
+            color: #040e5f;
+
+            @media (max-width: 991.98px) {
+                max-width: initial;
+            }
         }
 
         .Service-price-content {
+            flex-grow: 1;
             display: flex;
-            justify-content: space-evenly;
-            gap: 30px;
+            justify-content: space-between;
+            gap: 50px 30px;
+
+            @media (max-width: 767.98px) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
             .Service-card {
                 max-width: 320px;
@@ -85,19 +104,33 @@ const {LANG, price} = Astro.props;
 
                 span {
                     text-align: center;
-                    font-size: 40px;
-                    font-family: var(--titles-font);
+                    font-size: 30px;
+                    font-family: var(--title-font);
+                    letter-spacing: 5px;
+                    white-space: nowrap;
+                }
+                .Service-card-title {
+                    color: #040e5f;
+                    font-weight: bold;
                 }
                 .Service-card-price {
+                    color: #040e5f;
                     font-size: 70px;
                     font-weight: bold;
                 }
                 ul {
                     margin-top: auto;
-                    padding-top: 15px;
+                    padding-top: 50px;
                     color: #555555;
                     list-style-position: outside;
-                    list-style-type: "- "
+                    list-style-type: "- ";
+                    font-family: var(--text-font);
+                    letter-spacing: 1px;
+                    font-size: 14px;
+
+                    li {
+                        padding-bottom: 10px;
+                    }
                 }
             }
         }

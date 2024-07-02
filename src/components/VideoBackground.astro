@@ -55,6 +55,8 @@ const {velocity = 1, height = '100%'} = Astro.props;
             if(this.mobile){
 
                 source = this.querySelector('video source[data-type="mobile"]');
+
+                source ??= this.querySelector('video source[data-type="desktop"]');
             }
             else {
                 

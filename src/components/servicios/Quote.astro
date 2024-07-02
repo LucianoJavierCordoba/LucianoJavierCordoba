@@ -25,10 +25,12 @@ const {text = []} = Astro.props;
         max-width: 600px;
         background-color: #fff;
         border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px #00000030;
 
         p {
             font-style: italic;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
+            font-family: var(--text-font);
             letter-spacing: 1px;
 
             &:first-child {
@@ -52,11 +54,13 @@ const {text = []} = Astro.props;
             }
         }
         .Service-quote-sign {
+            padding-top: 20px;
             display: block;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             text-align: end;
             color: #b12426;
             font-weight: 600;
+            font-family: var(--text-font);
             letter-spacing: 1px;
         }
     }

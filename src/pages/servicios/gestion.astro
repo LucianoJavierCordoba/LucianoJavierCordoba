@@ -1,13 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import video from "@assets/videos/gestion/gestion.webm";
+import video from "@assets/videos/gestion/gestion-desktop-2.mp4";
+import video_md from "@assets/videos/gestion/gestion-mobile.mp4";
 import poster from "@assets/videos/gestion/gestion.webp";
+import poster_md from "@assets/videos/gestion/gestion-mobile.png";
 import Banner from "@components/Banner.astro";
 
 import LANGUAGES from "@/i18n/index.js";
 import PayMethods from "@/components/servicios/PayMethods.astro";
 import Price from "@/components/servicios/Price.astro";
 import { SERVICES_PRICING } from "@/config";
+
+
 import Contact from "@/components/home/Contact.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['gestion'];
@@ -16,14 +20,18 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['gestion'];
 
 <Layout title="Gestion">
 
-    <Banner background={{video, poster}}>
+    <Banner>
+
+        <Fragment slot="video-sources">
+            <source data-type="desktop" data-src={video} data-poster={poster.src}/>
+            <source data-type="mobile" data-src={video_md} data-poster={poster_md.src}/>
+        </Fragment>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>
         
         <h2 class="banner-subtitle">
             {LANG.banner.heading.at(0)} {750} {LANG.banner.heading.at(1)}
         </h2>
-
         
     </Banner>
 
@@ -36,34 +44,64 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['gestion'];
 </Layout>
 
 <style>
-    :global(.Banner-content) {
+    :global(.Banner) {
 
-        gap: 30px;
+        height: 50vw;
+        max-height: 90vh;
+
+        .Banner-content {
+            --banner-content-padding: 20px 50px 50px 50px;
+            align-items: center;
+            gap: 30px;
+        }
+
+        video {
+            object-position: center;
+        }
+
+        @media (max-width: 767.98px) {
+
+            height: 70vh;
+
+            .Banner-content {
+                --banner-content-padding: 50px 50px;
+                align-self: center;
+            }
+
+            video {
+                object-position: bottom;
+            }
+        }
     }
     .banner-title {
         margin-inline: auto;
         font-weight: bolder;
-        font-size: 70px;
+        font-size: clamp(40px, 8vw, 130px);
         text-align: center;
-        text-shadow: 0px 8px 5px #00000050;
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
         line-height: 1.5;
-        color: #37738b;
+        color: #ffffff;
         max-width: 50ch;
     }
     .banner-subtitle {
+        margin-top: auto;
         margin-inline: auto;
         font-weight: bold;
         text-align: center;
-        font-size: 35px;
-        text-shadow: 0px 8px 5px #00000050;
+        font-size: clamp(18px, 3vw, 35px);
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
 
         max-width: 60ch;
-        color: #fff;
+        color: #0555bc;
 
         & :global(span) {
             color: #1da1d2;
+        }
+
+        @media (max-width: 767.98px) {
+            margin-top: initial;
         }
     }
 </style>

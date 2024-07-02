@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import video from "@assets/videos/administrativo/administrativo.webm";
+import video_md from "@assets/videos/administrativo/administrativo.mp4";
 import poster from "@assets/videos/administrativo/administrativo.webp";
 import Banner from "@components/Banner.astro";
 import {SERVICES_PRICING} from "@/config/index.js";
@@ -17,7 +18,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
 
 <Layout title="Asistente administrativo Jr.">
 
-    <!-- <Banner background={{video, poster}}>
+    <Banner>
+
+        <Fragment slot="video-sources">
+            <source data-type="desktop" data-src={video} data-poster={poster.src}/>
+            <source data-type="mobile" data-src={video_md} data-poster={poster.src}/>
+        </Fragment>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>
         
@@ -31,10 +37,11 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
         <div class="About-service-content">
             <Quote text={LANG.quote} />
 
+            <div class="extra-content"></div>
         </div>
 
         <TechStack icons={STACK_2} title={LANG["tech-stack-title"]}/>
-    </section> -->
+    </section>
 
     <Price LANG={LANG.pricing} price={SERVICES_PRICING['asistente-administrativo']} />
 
@@ -45,37 +52,60 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
 </Layout>
 
 <style>
-    :global(.Video-background video) {
-        object-position: center 30%;
-    }
-    :global(.Banner-content) {
+    :global(.Banner) {
 
-        gap: 30px;
+        height: 50vw;
+        max-height: 90vh;
+
+        .Banner-content {
+            --banner-content-padding: 50px 50px;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 767.98px) {
+
+            height: 60vh;
+
+            .Banner-content {
+                --banner-content-padding: 50px 50px;
+                align-self: center;
+            }
+
+            video {
+                object-position: bottom;
+            }
+        }
     }
-    .banner-title {
-        margin-inline: auto;
-        font-weight: bolder;
-        font-size: 70px;
-        text-align: center;
-        text-shadow: 0px 8px 5px #00000050;
-        letter-spacing: 5px;
-        line-height: 1.5;
-        color: #37738b;
-        max-width: 50ch;
-    }
+        .banner-title {
+            margin-inline: auto;
+            font-weight: bolder;
+            font-size: clamp(40px, 8vw, 130px);
+            text-align: center;
+            text-shadow: 0px 8px 5px #00000020;
+            letter-spacing: 5px;
+            line-height: 1.5;
+            color: #ffffff;
+            max-width: 50ch;
+        }
     .banner-subtitle {
         margin-inline: auto;
         font-weight: bold;
         text-align: center;
-        font-size: 35px;
-        text-shadow: 0px 8px 5px #00000050;
+        font-size: clamp(18px, 5vw, 35px);
+        text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
 
         max-width: 60ch;
-        color: #fff;
+        color: #0096fc;
 
         & :global(span) {
             color: #1da1d2;
+        }
+
+        @media (max-width: 767.98px) {
+            /* margin-top: auto; */
+            color: #555;
         }
     }
     :global(.Service-price-title) {
@@ -89,12 +119,21 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
         .About-service-content {
             padding-inline: 50px;
             padding-bottom: 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        } 
+            display: flex;
+            flex-wrap: wrap;
+            
+            @media (max-width: 767.98px) {
+                padding-inline: 20px;
+            }
+
+            .extra-content {
+                min-width: 400px;
+                flex-grow: 1;
+            }
+        }
+        
     }
     .About-service :global(.Tech-stack){
         background-color: #ffffffaa;
-        --tech-icon-width: 100px;
     }
 </style>
