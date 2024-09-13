@@ -9,6 +9,11 @@ import Price from "@/components/servicios/Price.astro";
 import PayMethods from "@/components/servicios/PayMethods.astro";
 import { SERVICES_PRICING } from "@/config";
 import Contact from "@/components/home/Contact.astro";
+import Quote from "@/components/servicios/Quote.astro";
+import TechStack from "@/components/servicios/TechStack.astro";
+import { STACK_2 } from "@/assets/logos";
+
+import video2 from "@assets/videos/supervisor de ventas.mp4";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['supervisor-de-ventas'];
 ---
@@ -27,6 +32,16 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['supervisor-de-ventas
         </h2>
    
     </Banner>
+
+    <section class="About-service">
+        <div class="About-service-content">
+            <Quote text={LANG.quote} />
+
+            <video class="About-service-video" src={video2} controls></video>
+        </div>
+
+        <TechStack icons={STACK_2} title={LANG["tech-stack-title"]}/>
+    </section>
 
     <Price LANG={LANG.pricing} price={SERVICES_PRICING['supervisor-de-ventas']}/>
 
@@ -66,5 +81,41 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['supervisor-de-ventas
         & :global(span) {
             color: #1da1d2;
         }
+    }
+
+    .About-service {
+        padding-block: 50px;
+        background-color: #82b8ff;
+        
+        .About-service-content {
+            padding-inline: 50px;
+            padding-bottom: 100px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            
+            @media (max-width: 767.98px) {
+                padding-inline: 20px;
+            }
+
+            .extra-content {
+                min-width: 400px;
+                flex-grow: 1;
+            }
+        }
+
+        .About-service-video {
+
+            width: 560px;
+            height: 315px;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #00000030;
+        }
+        
+    }
+    .About-service :global(.Tech-stack){
+        background-color: #ffffffaa;
     }
 </style>
