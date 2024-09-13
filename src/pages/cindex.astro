@@ -7,7 +7,7 @@ import video_1_md from "@assets/videos/banner-mobile.mp4";
 import poster_1_md from "@assets/videos/banner-mobile.jpg";
 import video_2 from "@assets/videos/presentacion-animada.mp4";
 import poster_2 from "@assets/videos/banner-2.jpg";
-import video_2_md from "@assets/videos/banner-2-mobile.mp4";
+import video_2_md from "@assets/videos/presentacion-animada-mobile.mp4";
 import poster_2_md from "@assets/videos/banner-2-mobile.jpg";
 
 import Banner from "@components/Banner.astro";
@@ -30,7 +30,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
         <Fragment slot="video-sources">
             <source data-type="desktop" data-src={video_2} data-poster={poster_1.src}/>
-
+            <source data-type="desktop" data-src={video_2_md} data-poster={poster_1.src}/>
         </Fragment>
 
     </Banner>
