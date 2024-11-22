@@ -1,0 +1,72 @@
+---
+const {text = "Animated Text", Tag = 'span'} = Astro.props;
+---
+
+<div class="Animated-text-1" data-text={text}>
+
+    <Tag class="text-wrapper">
+        {
+            [...text].map(letter => {
+
+                if(letter === ' ') return letter;
+
+                return <span class="letter">{letter}</span>;
+            })
+        }
+    </Tag>
+
+</div>
+
+<script>
+
+    import anime from "animejs";
+
+    
+    document.querySelectorAll('.Animated-text-1').forEach((element) => {
+
+        const animation = anime
+        .timeline({
+            loop: false,
+            autoPlay: false
+        })
+        .add({
+            targets: element.querySelectorAll('.letter'),
+            translateY: ["1.1em", 0],
+            translateZ: 0,
+            duration: 750,
+            delay: (_, i) => 50 * i
+        });
+
+        const observer = new IntersectionObserver(([entry]) => {
+
+            if(entry.isIntersecting) animation.play();
+
+        }, {root: null, threshold: 1.0, rootMargin: '0px'});
+
+        observer.observe(element);
+    });
+
+</script>
+
+<style>
+    .Animated-text-1 {
+
+        position: relative;
+
+
+        .text-wrapper {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.2em;
+            padding-right: 0.05em;
+            padding-bottom: 0.1em;
+            overflow: hidden;
+        }
+
+        .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
+    }
+
+</style>

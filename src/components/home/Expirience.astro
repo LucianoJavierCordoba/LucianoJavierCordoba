@@ -2,6 +2,7 @@
 import {GROUP_1, GROUP_2} from "@assets/logos/index.js";
 
 import LANGUAGES from "@/i18n/index.js";
+import AnimatedText1 from "../Animated/AnimatedText1.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
 ---
@@ -10,7 +11,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.expirience;
 
     <div class="Expirience-content container">
 
-        <h2 class="Expirience-title">{LANG.title}</h2>
+        <h2 class="Expirience-title">
+            <AnimatedText1 text={LANG.title} />
+        </h2>
     
         <p class="Expirience-heading">{LANG.heading_1}</p>
     

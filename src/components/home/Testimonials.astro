@@ -2,6 +2,7 @@
 import LANGUAGES from "@/i18n/index.js";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import TestimonialCard from "./TestimonialCard.astro";
+import AnimatedText1 from "../Animated/AnimatedText1.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.testimonials;
 
@@ -32,7 +33,9 @@ const TESTIMONIALS = [
 
 <section class="Testimonials container">
 
-    <h2 class="Testimonials-title">{LANG.title}</h2>
+    <h2 class="Testimonials-title">
+        <AnimatedText1 text={LANG.title} />
+    </h2>
 
     <p class="Testimonials-heading">{LANG.heading}</p>
 

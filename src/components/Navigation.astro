@@ -60,6 +60,9 @@ const LINKS = [
 	}
 
 	.Navigation {
+
+		padding-block: 5px;
+
 		position: relative;
 		z-index: 5000;
 		border-top: 3px solid var(--navigation-border-top-color);
@@ -124,6 +127,25 @@ const LINKS = [
 			}
 
 		}
+
+		animation-timeline: scroll(root y);
+		animation-name: reduce-nav;
+		animation-duration: 1s;
+		animation-fill-mode: forwards;
+		animation-range: 0% 10%;
+		animation-timing-function: ease;
+
+		.navbar-brand {
+			width: auto;
+			height: 80px;
+
+			animation-timeline: scroll(root y);
+			animation-name: reduce-icon;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			animation-range: 0% 10%;
+			animation-timing-function: ease;
+		}
 	}
 
 	@keyframes anchor-line-grow {
@@ -132,6 +154,26 @@ const LINKS = [
 		}
 		to {
 			width: 100%;
+		}
+	}
+
+	@keyframes reduce-nav {
+
+		from {
+			height: 100px;	
+		}
+		to {
+			height: 60px;
+		}
+	}
+
+	@keyframes reduce-icon {
+
+		from {
+			height: 80px;	
+		}
+		to {
+			height: 50px;
 		}
 	}
 </style>

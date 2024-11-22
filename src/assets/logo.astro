@@ -1,18 +1,21 @@
 ---
 import logo from "./logo.svg?raw";
 
-const {width = '150px', height = '60px'} = Astro.props;
+const {width = '', height = ''} = Astro.props;
 ---
 
-<div class="Logo" set:html={logo} 
+<div class="Logo" set:html={logo} />
 
-    style={{ width, height, }} 
-/>
-
-<style>
+<style
+    define:vars={{
+        'logo-width': width,
+        'logo-height': height
+    }}
+>
     .Logo {
-        width: 150px;
-        height: 60px;
+        display: inline-block;
+        width: var(--logo-width, 150px);
+        height: var(--logo-height, 60px);
         filter: drop-shadow(0px 0px 8px #00000030);
 
         & :global(svg){
@@ -21,5 +24,4 @@ const {width = '150px', height = '60px'} = Astro.props;
             filter: drop-shadow(0px 0px 1px #00000070);
         }
     }
-
 </style>
