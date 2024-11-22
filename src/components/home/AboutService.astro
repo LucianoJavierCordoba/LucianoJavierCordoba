@@ -3,6 +3,7 @@ import mark_1 from "@assets/mark_1.svg?raw";
 import mark_2 from "@assets/mark_2.svg?raw";
 import mark_3 from "@assets/mark_3.svg?raw";
 import LANGUAGES from "@/i18n/index.js";
+import AnimatedText2 from "../Animated/AnimatedText2.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
 ---
@@ -16,7 +17,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_1} />
             <div>
-                <h6>{LANG.step_1_title}</h6>
+                <h6>
+                    <AnimatedText2 text={LANG.step_1_title} />
+                </h6>
     
                 <p>{LANG.step_1_text}</p>
             </div>
@@ -25,7 +28,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_2} />
             <div>
-                <h6>{LANG.step_2_title}</h6>
+                <h6>
+                    <AnimatedText2 text={LANG.step_2_title} />
+                </h6>
     
                 <p>{LANG.step_2_text}</p>
             </div>
@@ -34,7 +39,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.about_service;
         <div class="About-service-card">
             <div class="About-service-mark" set:html={mark_3} />
             <div>
-                <h6>{LANG.step_3_title}</h6>
+                <h6>
+                    <AnimatedText2 text={LANG.step_3_title} />
+                </h6>
     
                 <p>{LANG.step_3_text}</p>
             </div>

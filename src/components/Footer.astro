@@ -3,33 +3,8 @@ import Logo from "@/assets/logo.astro";
 import { REDES, COPYRIGHT, ADDRESS } from "@/config/index.js";
 import LANGUAGES from "@/i18n/index.js";
 import { LINKS } from "@/utils/RedesUtils";
+import ContactIcons from "./ContactIcons.astro";
 
-const REDES_LINKS = [
-    {
-        name: 'Whatsapp',
-        url: `https://wa.me/${REDES.whatsapp}`,
-        bs_icon: 'bi-whatsapp',
-        color: '#1f9e5c'
-    },
-    {
-        name: 'Instagram',
-        url: REDES.instagram,
-        bs_icon: 'bi-instagram',
-        color: '#ee2a7b'
-    },
-    {
-        name: 'Facebook',
-        url: REDES.facebook,
-        bs_icon: 'bi-facebook',
-        color: '#0866ff'
-    },
-    {
-        name: 'Linkedin',
-        url: REDES.linkedin,
-        bs_icon: 'bi-linkedin',
-        color: '#0077b5'
-    }
-];
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.footer;
 
@@ -94,18 +69,7 @@ const email = LINKS['contacto'];
 
             <Logo width="170px" height="100px"/>
 
-            <ul class="Footer-redes">
-                {
-                    REDES_LINKS.map(({url, name, bs_icon, color}) => {
-
-                        return <li>
-                            <a href={url} title={name}>
-                                <i class={`bi ${bs_icon}`} style={{color}}/>
-                            </a>
-                        </li>
-                    })
-                }  
-            </ul>
+            <ContactIcons />
         </div>
 
     </section>
@@ -148,12 +112,12 @@ const email = LINKS['contacto'];
             gap: 20px;
             list-style: none;
 
-            
             padding: 0;
             
-
             li {
+                width: 300px;
                 height: 40px;
+                position: relative;
             }
             
             a {
@@ -166,6 +130,9 @@ const email = LINKS['contacto'];
                 color: #000;
                 transition: font-size 0.1s;
                 line-height: 2;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
             a:hover {
                 font-size: 18px;
@@ -178,27 +145,6 @@ const email = LINKS['contacto'];
             flex-direction: column;
             align-items: center;
             gap: 30px;
-
-            .Footer-redes {
-                padding-inline: 20px;
-                display: flex;
-                gap: 50px;
-                list-style: none;
-    
-                a {
-                    text-decoration: none;
-                    font-size: 30px;
-                    
-                    & i:before {
-                        transition: transform 0.1s;
-                        filter: drop-shadow(0px 0px 1px #00000020);
-                    }
-                    &:hover i:before {
-                        transform: scale3d(1.2, 1.2, 1);
-                    }
-                }
-                
-            }
         }
 
         .Footer-contacto {
@@ -234,7 +180,7 @@ const email = LINKS['contacto'];
             
             p {
                 text-align: center;
-                color: #000000;
+                color: #5c5c5c;
                 font-family: var(--text-font);
                 margin: 0;
             }

@@ -1,10 +1,10 @@
 ---
 import logo from "./logo.svg?raw";
 
-const {width = '', height = ''} = Astro.props;
+const {width = '', height = '', ...others} = Astro.props;
 ---
 
-<div class="Logo" set:html={logo} />
+<div class="Logo" set:html={logo} {...others} />
 
 <style
     define:vars={{

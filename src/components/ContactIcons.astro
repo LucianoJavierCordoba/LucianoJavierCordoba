@@ -1,0 +1,86 @@
+---
+import { REDES } from "@/config/index.js";
+
+const REDES_LINKS = [
+    {
+        name: 'Whatsapp',
+        url: `https://wa.me/${REDES.whatsapp}`,
+        bs_icon: 'bi-whatsapp',
+        color: '#1f9e5c'
+    },
+    {
+        name: 'Instagram',
+        url: REDES.instagram,
+        bs_icon: 'bi-instagram',
+        color: '#ee2a7b'
+    },
+    {
+        name: 'Facebook',
+        url: REDES.facebook,
+        bs_icon: 'bi-facebook',
+        color: '#0866ff'
+    },
+    {
+        name: 'Linkedin',
+        url: REDES.linkedin,
+        bs_icon: 'bi-linkedin',
+        color: '#0077b5'
+    }
+];
+---
+
+
+<div class="Contact-icons">
+
+    <ul>
+        {
+            REDES_LINKS.map(({url, name, bs_icon, color}) => {
+
+                return <li>
+                    <a href={url} title={name}>
+                        <i class={`bi ${bs_icon}`} style={{color}}/>
+                    </a>
+                </li>
+            })
+        }  
+    </ul>
+
+</div>
+
+
+<style>
+.Contact-icons {
+
+    max-width: 600px;
+    min-width: 350px;
+    
+    ul {
+        min-height: 70px;
+        padding-inline: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 50px;
+        list-style: none;
+
+        li {
+            width: 25%;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 30px;
+            transition: font-size 0.1s;
+            
+            & i:before {
+                filter: drop-shadow(0px 0px 1px #00000020);
+            }
+            &:hover {
+                font-size: 32px;
+            }
+        }
+    }
+
+}
+</style>
