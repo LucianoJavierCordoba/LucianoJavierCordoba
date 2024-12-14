@@ -1,4 +1,6 @@
 ---
+import Odometer from "../Animated/Odometer.astro";
+
 const {LANG} = Astro.props;
 ---
 
@@ -9,8 +11,13 @@ const {LANG} = Astro.props;
     {
         LANG.stats.numbers.map(({value, text}) => {
 
+            const {number, start, end} = value;
+
             return <p>
-                <span>{value}</span>
+                <Odometer value={number}>
+                    {start && <span slot="start">{start}</span>}
+                    {end && <span slot="end">{end}</span>}
+                </Odometer>
                 <span>{text}</span>
             </p>
         })
@@ -30,18 +37,19 @@ const {LANG} = Astro.props;
         font-family: var(--titles-font);
         text-align: center;
 
-        .Service-stats-title {
+        & .Service-stats-title {
             color: white;
             font-size: 45px;
             font-weight: bold;
             letter-spacing: 2px;
         }
-        p {
+        & p {
             font-size: 35px;
             font-weight: 600;
             letter-spacing: 1px;
             color: #777;
-            span {
+            
+            & span {
                 display: block;
             }
 

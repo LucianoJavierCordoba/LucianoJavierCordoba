@@ -10,13 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.6.3",
-    "@glidejs/glide": "^3.6.1",
+    "@glidejs/glide": "^3.7.1",
     "@videojs/themes": "^1.0.1",
     "animejs": "^3.2.2",
-    "astro": "^4.5.10",
+    "astro": "^5.0.5",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "video.js": "^8.19.1"
+    "video.js": "^8.21.0"
   }
 }

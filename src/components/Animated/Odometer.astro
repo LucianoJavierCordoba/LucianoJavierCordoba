@@ -2,6 +2,12 @@
 
 import "@/css/odometer-default.css";
 
+/**
+ * Props like:
+ * {
+ *    value: 100
+ * }
+ */
 ---
 
 
@@ -20,7 +26,7 @@ import "@/css/odometer-default.css";
 
     document.querySelectorAll('custom-odometer').forEach(element => {
 
-        const value = element.getAttribute('value') ?? 100;
+        const value = Number(element.getAttribute('value')) ?? 100;
 
         const odometer = new window.Odometer({
             el: element.querySelector('custom-odometer-value'),

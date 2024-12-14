@@ -10,10 +10,13 @@ const {className = '', background = {}} = Astro.props;
 
         <slot name="video-sources" slot="video-sources" />
 
-        <div class="Banner-content">
-
-            <slot />
-
+        <div class="Banner-background">
+            
+            <div class="Banner-content">
+    
+                <slot />
+    
+            </div>
         </div>
 
     </VideoBackground>
@@ -28,12 +31,16 @@ const {className = '', background = {}} = Astro.props;
         z-index: 10;
         box-shadow: 0 5px 10px 0px #00000042;
 
+        .Banner-background {
+            width: 100%;
+            height: 100%;
+        }
+
         .Banner-content {
             height: 100%;
             display: flex;
             flex-direction: column;
             padding: var(--banner-content-padding, 50px);
-            backdrop-filter: blur(0px);
         }
     }
 </style>

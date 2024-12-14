@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import video from "@assets/videos/vendedor/vendedor-desktop.mp4";
 import video_md from "@assets/videos/vendedor/vendedor-mobile.mp4";
-import poster from "@assets/videos/vendedor/vendedor.webp";
+import poster from "@assets/videos/vendedor/vendedor-desktop.webp";
 import poster_md from "@assets/videos/vendedor/vendedor-mobile.png";
 import Banner from "@components/Banner.astro";
 
@@ -51,6 +51,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['vendedor-telefonico'
             --banner-content-padding: 20px 50px 50px 50px;
             align-items: center;
             gap: 10px;
+
+        }
+        
+        .Banner-background {
+            
+            background: radial-gradient(circle, #ffffff33 0%, transparent 100%);
         }
 
         @media (max-width: 767.98px) {

@@ -82,17 +82,22 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
             }
         }
     }
-        .banner-title {
-            margin-inline: auto;
-            font-weight: bolder;
-            font-size: clamp(40px, 8vw, 130px);
-            text-align: center;
-            text-shadow: 0px 8px 5px #00000020;
-            letter-spacing: 5px;
-            line-height: 1.5;
-            color: #ffffff;
-            max-width: 50ch;
-        }
+    :global(.Banner-background){
+            
+        background: radial-gradient(circle, #0000001e 0%, transparent 100%);
+    }
+
+    .banner-title {
+        margin-inline: auto;
+        font-weight: bolder;
+        font-size: clamp(40px, 8vw, 130px);
+        text-align: center;
+        text-shadow: 0px 8px 5px #00000020;
+        letter-spacing: 8px;
+        line-height: 1.5;
+        color: #ffffff;
+        max-width: 50ch;
+    }
     .banner-subtitle {
         margin-inline: auto;
         font-weight: bold;
@@ -102,7 +107,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
         letter-spacing: 5px;
 
         max-width: 60ch;
-        color: #0096fc;
+        color: #175a86;
 
         & :global(span) {
             color: #1da1d2;

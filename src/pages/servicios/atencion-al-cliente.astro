@@ -1,9 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
+
 import video from "@assets/videos/cliente/cliente-desktop-2.mp4";
 import video_md from "@assets/videos/cliente/cliente-mobile.mp4";
-import poster from "@assets/videos/cliente/cliente.webp";
+import poster from "@assets/videos/cliente/cliente-desktop-2.webp";
 import poster_md from "@assets/videos/cliente/cliente-mobile.png";
+
 import Banner from "@components/Banner.astro";
 
 import LANGUAGES from "@/i18n/index.js";
@@ -80,13 +82,17 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
             }
         }
     }
+    :global(.Banner-background){
+            
+        background: radial-gradient(circle, #3168ff4b 0%, transparent 100%);
+    }
     .banner-title {
         margin-inline: auto;
         font-weight: bolder;
         font-size: clamp(40px, 8vw, 130px);
         text-align: center;
         text-shadow: 0px 8px 5px #00000020;
-        letter-spacing: 5px;
+        letter-spacing: 8px;
         line-height: 1.5;
         color: #ffffff;
         max-width: 50ch;

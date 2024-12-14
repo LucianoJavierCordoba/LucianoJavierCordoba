@@ -86,13 +86,17 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
             }
         }
     }
+    :global(.Banner-background){
+            
+        background: radial-gradient(circle, #aaaaaa5e 0%, transparent 100%);
+    }
     .banner-title {
         margin-inline: auto;
         font-weight: bolder;
         font-size: clamp(40px, 8vw, 130px);
         text-align: center;
-        text-shadow: 0px 8px 5px #00000050;
-        letter-spacing: 5px;
+        text-shadow: 8px 8px 5px #00000050;
+        letter-spacing: 8px;
         line-height: 1.5;
         color: #ffffff;
         max-width: 50ch;
@@ -106,7 +110,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
         letter-spacing: 5px;
 
         max-width: 60ch;
-        color: #666;
+        color: #000000;
 
         & :global(span) {
             color: #1da1d2;
