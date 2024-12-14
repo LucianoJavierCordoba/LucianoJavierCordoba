@@ -14,6 +14,7 @@ import TechStack from "@/components/servicios/TechStack.astro";
 import {STACK_2} from "@assets/logos/index.js";
 
 import video2 from "@assets/videos/administrativo.mp4";
+import VideoJS from "@/components/VideoJS.astro";
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administrativo'];
 ---
@@ -39,7 +40,9 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
         <div class="About-service-content">
             <Quote text={LANG.quote} />
 
-            <video class="About-service-video" src={video2} controls></video>
+            <VideoJS className="About-service-video" controls>
+                <source src={video2} type="video/mp4">
+            </VideoJS>
         </div>
 
         <TechStack icons={STACK_2} title={LANG["tech-stack-title"]}/>

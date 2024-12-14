@@ -1,13 +1,26 @@
 ---
 import AnimatedText1 from "@/components/Animated/AnimatedText1.astro";
 import ContactIcons from "@/components/ContactIcons.astro";
+import Odometer from "@/components/Odometer.astro";
+import VideoJS from "@/components/VideoJS.astro";
 import Layout from "@/layouts/Test.astro";
 
+import video2 from "@assets/videos/administrativo.mp4";
 ---
 <Layout>
 
     <!-- <AnimatedText1 /> -->
     
-    <ContactIcons />
+    <!-- <Odometer /> -->
 
+    <VideoJS controls className="About-service-video">
+        <source src={video2} type="video/mp4" />
+    </VideoJS>
 </Layout>
+
+<style>
+    :global(.About-service-video) {
+        width: 500px;
+        height: 500px;
+    }
+</style>

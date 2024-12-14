@@ -1,0 +1,36 @@
+---
+import "video.js/dist/video-js.min.css";
+import "@videojs/themes/dist/fantasy/index.css";
+
+const {config = {fluid: true}, className, ...others} = Astro.props;
+---
+
+<div class:list={['Custom-video-js', className]}>
+    <video class="video-js" data-setup={JSON.stringify(config)} {...others}>
+        <slot />
+    </video>
+</div>
+
+
+<script>
+
+    import videojs from "video.js/dist/video.js";
+
+    document.querySelectorAll('.Custom-video-js').forEach(element => {
+
+        videojs(element.querySelector('video'));
+    });
+
+</script>
+
+<style>
+    .Custom-video-js {
+
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+</style>

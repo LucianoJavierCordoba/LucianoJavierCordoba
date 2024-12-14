@@ -1,4 +1,6 @@
 ---
+import Odometer from "@components/Animated/Odometer.astro";
+
 const {LANG, price} = Astro.props;
 ---
 
@@ -12,11 +14,15 @@ const {LANG, price} = Astro.props;
 
             <span class="Service-card-title">{LANG.middle.title}</span>
 
-            <span>{LANG.middle.hours.at(0)}</span>
+            <span class="Service-card-hours">{LANG.middle.hours.at(0)}</span>
 
-            <span class="Service-card-price">{price?.middle}</span>
+            <span class="Service-card-price">
+                <Odometer value={price?.middle} >
+                    <span slot="end">$</span>
+                </Odometer>
+            </span>
 
-            <span>{LANG.middle.hours.at(1)}</span>
+            <span class="Service-card-hours">{LANG.middle.hours.at(1)}</span>
 
             <ul>
                 {
@@ -32,11 +38,15 @@ const {LANG, price} = Astro.props;
             
             <span class="Service-card-title">{LANG.full.title}</span>
 
-            <span>{LANG.full.hours.at(0)}</span>
+            <span class="Service-card-hours">{LANG.full.hours.at(0)}</span>
 
-            <span class="Service-card-price">{price?.full}</span>
+            <span class="Service-card-price">
+                <Odometer value={price?.full}>
+                    <span slot="end">$</span>
+                </Odometer>
+            </span>
 
-            <span>{LANG.full.hours.at(1)}</span>
+            <span class="Service-card-hours">{LANG.full.hours.at(1)}</span>
 
             <ul>
                 {
@@ -102,7 +112,7 @@ const {LANG, price} = Astro.props;
                 padding: 20px;
                 box-shadow: 0px 0px 10px 0px #00000030;
 
-                span {
+                .Service-card-hours {
                     text-align: center;
                     font-size: 30px;
                     font-family: var(--title-font);

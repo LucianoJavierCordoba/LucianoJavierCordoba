@@ -1,0 +1,56 @@
+---
+
+import "@/css/odometer-default.css";
+
+---
+
+
+<custom-odometer {...Astro.props} style="visibility: hidden;">
+
+    <slot name="start"/>
+
+    <custom-odometer-value />
+
+    <slot name="end"/>
+</custom-odometer>
+
+<script>
+
+    import "@/scripts/odometer.min.js";
+
+    document.querySelectorAll('custom-odometer').forEach(element => {
+
+        const value = element.getAttribute('value') ?? 100;
+
+        const odometer = new window.Odometer({
+            el: element.querySelector('custom-odometer-value'),
+            value: 0,
+            format: '(.ddd),dd'
+        });
+
+        const observer = new IntersectionObserver(([entry]) => {
+
+            if(entry.isIntersecting){
+
+                element.style.visibility = '';
+
+                odometer.update(value);
+
+                observer.disconnect();
+            }
+
+        }, {root: null, threshold: 1.0, rootMargin: '0px'});
+
+        observer.observe(element);
+    });
+
+</script>
+
+<style>
+
+    custom-odometer {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 5px;
+    }
+</style>
