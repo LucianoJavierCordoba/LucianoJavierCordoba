@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "E:/PROYECTOS/lucho-portfolio",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
