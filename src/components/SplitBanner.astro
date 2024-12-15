@@ -1,0 +1,67 @@
+---
+
+
+const {className = '', background = {}} = Astro.props;
+---
+
+<section class={`Split-Banner ${className}`}>
+
+    <div class="Split-Banner-video">
+        <video muted autoplay loop>
+            <slot name="video-sources" slot="video-sources" />
+        </video>
+    </div>
+
+    <div class="Banner-background">
+        
+        <div class="Banner-content">
+
+            <slot />
+
+        </div>
+    </div>
+
+</section>
+
+
+<style>
+
+    .Split-Banner {
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        box-shadow: 0 5px 10px 0px #00000042;
+
+        & > * {
+            min-width: 0;
+            min-height: 0;
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+
+        .Split-Banner-video {
+            display: flex;
+            justify-content: end;
+
+            & > video {
+                min-width: 70%;
+                height: 100%;
+            }
+        }
+
+        .Banner-background {
+            width: 100%;
+            height: 100%;
+        }
+
+        .Banner-content {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: var(--Split-banner-content-padding, 50px);
+        }
+    }
+</style>

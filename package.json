@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^6.0.0",
     "@glidejs/glide": "^3.7.1",
     "@videojs/themes": "^1.0.1",
     "animejs": "^3.2.2",
