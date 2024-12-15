@@ -17,8 +17,8 @@ const {LANG, price} = Astro.props;
             <span class="Service-card-hours">{LANG.middle.hours.at(0)}</span>
 
             <span class="Service-card-price">
-                <Odometer value={price?.middle} >
-                    <span slot="end">$</span>
+                <Odometer value={price?.middle?.number} >
+                    <span slot="end">{price?.middle?.sign}</span>
                 </Odometer>
             </span>
 
@@ -41,8 +41,8 @@ const {LANG, price} = Astro.props;
             <span class="Service-card-hours">{LANG.full.hours.at(0)}</span>
 
             <span class="Service-card-price">
-                <Odometer value={price?.full}>
-                    <span slot="end">$</span>
+                <Odometer value={price?.full?.number}>
+                    <span slot="end">{price?.full?.sign}</span>
                 </Odometer>
             </span>
 
