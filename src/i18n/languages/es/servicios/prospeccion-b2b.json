@@ -22,10 +22,9 @@
             {
                 "value": {
                     "number": 170,
-                    "start": "+",
-                    "end": "LEADS"
+                    "start": "+"
                 },
-                "text": "GENERADOS EN EL ULTIMO AÑO"
+                "text": "LEADS GENERADOS EN EL ULTIMO AÑO"
             },
             {
                 "value": {

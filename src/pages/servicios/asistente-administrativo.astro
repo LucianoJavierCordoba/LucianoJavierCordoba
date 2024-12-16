@@ -5,7 +5,7 @@ import video_md from "@assets/videos/administrativo/administrativo.mp4";
 import poster from "@assets/videos/administrativo/administrativo.webp";
 
 //import Banner from "@components/Banner.astro";
-import Banner from "@components/SplitBanner.astro";
+import Banner from "@components/Banner.astro";
 
 import {SERVICES_PRICING} from "@/config/index.js";
 import LANGUAGES from "@/i18n/index.js";
@@ -27,8 +27,8 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['asistente-administra
     <Banner>
 
         <Fragment slot="video-sources">
-            <source data-type="desktop" src={video} poster={poster.src}/>
-            <source data-type="mobile" src={video_md} poster={poster.src}/>
+            <source data-type="desktop" data-src={video} data-poster={poster.src}/>
+            <source data-type="mobile" data-src={video_md} data-poster={poster.src}/>
         </Fragment>
 
         <h1 class="banner-title">{LANG.banner.title}</h1>

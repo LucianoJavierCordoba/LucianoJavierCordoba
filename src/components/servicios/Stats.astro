@@ -8,22 +8,31 @@ const {LANG} = Astro.props;
 
     <h4 class="Service-stats-title">{LANG.stats.title}</h4>
 
-    {
-        LANG.stats.numbers.map(({value, text}) => {
+    <div class="Service-stats-content">
+        {
+            LANG.stats.numbers.map(({value, text}) => {
 
-            const {number, start, end} = value;
+                const {number, start, end} = value;
 
-            return <p>
-                <Odometer value={number}>
-                    {start && <span slot="start">{start}</span>}
-                    {end && <span slot="end">{end}</span>}
-                </Odometer>
-                <span>{text}</span>
-            </p>
-        })
-    }
+                return <div class="stat-card">
 
-    <p>{LANG.stats.details}</p>
+
+                    <Odometer value={number}>
+                        {start && <span slot="start">{start}</span>}
+                        {end && <span slot="end">{end}</span>}
+                    </Odometer>
+
+                    <p>{text}</p>
+                </div>
+            })
+        }
+
+    </div>
+
+
+
+    <p class="Service-stats-details">{LANG.stats.details}</p>
+
 
 </article>
 
@@ -33,32 +42,43 @@ const {LANG} = Astro.props;
         display: flex;
         align-items: center;
         flex-direction: column;
-        gap: 10px;
+        gap: 50px;
+
         font-family: var(--titles-font);
         text-align: center;
 
+        & .Service-stats-content {
+            display: flex;
+            max-width: 1400px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 20px;
+        }
+
         & .Service-stats-title {
             color: white;
-            font-size: 45px;
+            font-size: clamp(35px, 5vw, 60px);
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 5px;
+            text-shadow: 5px 3px 5px #00000059;
+            margin-bottom: 30px;
         }
-        & p {
-            font-size: 35px;
+        & .stat-card {
+            font-size: 60px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: #777;
             
-            & span {
-                display: block;
+            & p {
+                font-size: 30px;
             }
+        }
 
-            &:nth-last-child(2){
-                font-size: 25px;
-            }
-            &:nth-last-child(1){
-                font-size: 16px;
-            }
+        .Service-stats-details {
+            font-size: 16px;
+            color: #000;
+            letter-spacing: 2px;
         }
     }
 
