@@ -6,11 +6,17 @@ const {text = "Animated Text", Tag = 'span'} = Astro.props;
 
     <Tag class="text-wrapper">
         {
-            [...text].map(letter => {
+            text.split(' ').map((word, index) => {
 
-                if(letter === ' ') return letter;
-
-                return <span class="letter">{letter}</span>;
+                return <Fragment>
+                    <span class="word">
+                        {
+                            [...word].map(letter => {
+                                return <span class="letter">{letter}</span>;
+                            })
+                        }
+                    </span>
+                </Fragment>            
             })
         }
     </Tag>
@@ -70,6 +76,10 @@ const {text = "Animated Text", Tag = 'span'} = Astro.props;
             overflow: hidden;
         }
 
+        .word {
+            display: inline-block;
+            white-space: nowrap;
+        }
         .letter {
             display: inline-block;
             line-height: 1em;
