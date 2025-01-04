@@ -39,8 +39,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
     </Banner>
 
     <section class="About-service">
+
         <div class="About-service-content">
-            <Quote text={LANG.quote} />
+            <div>
+                <Quote text={LANG.quote} />
+
+            </div>
 
             <div class="extra-content"></div>
         </div>
@@ -118,22 +122,20 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['atencion-al-cliente'
     }
 
     .About-service {
-        padding-block: 50px;
-        background-color: #005487;
+        padding-block: 100px 50px;
+        background-color: #e0e0e0;
         
         .About-service-content {
+            width: 100%;
             padding-inline: 50px;
             padding-bottom: 100px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             
             @media (max-width: 767.98px) {
                 padding-inline: 20px;
-            }
-
-            .extra-content {
-                min-width: 400px;
-                flex-grow: 1;
             }
         }
         

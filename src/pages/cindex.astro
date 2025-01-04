@@ -6,15 +6,11 @@ import poster_1 from "@assets/videos/banner.jpg";
 import video_1_md from "@assets/videos/banner-mobile.mp4";
 import poster_1_md from "@assets/videos/banner-mobile.jpg";
 import video_2 from "@assets/videos/presentacion-animada.mp4";
-import poster_2 from "@assets/videos/banner-2.jpg";
-import video_2_md from "@assets/videos/presentacion-animada-mobile.mp4";
-import poster_2_md from "@assets/videos/banner-2-mobile.jpg";
 
 import Banner from "@components/Banner.astro";
 import LANGUAGES from "@/i18n/index.js";
 import Expirience from "@/components/home/Expirience.astro";
 import Testimonials from "@/components/home/Testimonials.astro";
-import AboutMe from "@/components/home/AboutMe.astro";
 import Contact from "@/components/home/Contact.astro";
 import AboutService from "@/components/home/AboutService.astro";
 import { NAME } from "@/config";
@@ -26,15 +22,6 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
 <Layout title={NAME}>
     
-    <Banner className="Banner-2">
-
-        <Fragment slot="video-sources">
-            <source data-type="desktop" data-src={video_2} data-poster={poster_1.src}/>
-            <source data-type="desktop" data-src={video_2_md} data-poster={poster_1.src}/>
-        </Fragment>
-
-    </Banner>
-
     <Banner className="Banner-1">
 
         <Fragment slot="video-sources">
@@ -104,39 +91,15 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
     }
 
     :global(.Banner-1){
-        
-        height: 50vw;
-        max-height: 90vh;
-        
-        .Banner-content {
-            --banner-content-padding: 50px 50px;
-            align-self: self-start;
-            align-items: center;
-        }
-
-        @media (max-width: 767.98px) {
-
-            height: 80vh;
-
-            .Banner-content {
-                --banner-content-padding: 50px 50px;
-                align-self: center;
-            }
-        }
-    }
-    :global(.Banner-2){
 
         height: 50vw;
         max-height: 90vh;
         
         .Banner-content {
             --banner-content-padding: 30px 50px 80px 50px;
-            align-self: self-start;
-            align-items: start;
-        }
-
-        .banner-title, .banner-heading {
-            text-align: left;
+            align-items: center;
+            max-width: 60vw;
+            gap: 30px;
         }
 
         @media (max-width: 767.98px) {
@@ -145,7 +108,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
             .Banner-content {
                 --banner-content-padding: 30px 50px 10px 50px;
-                align-self: center;
+                max-width: initial;
             }
         } 
     }

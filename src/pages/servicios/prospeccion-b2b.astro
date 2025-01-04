@@ -118,7 +118,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
 
     .About-service {
         padding-block: 70px;
-        background-color: #dfdfdf;
+        background-color: #e0e0e0;
         
         display: flex;
         flex-direction: column;
@@ -126,7 +126,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.servicios['prospeccion-b2b'];
         
     }
     .About-service :global(.Tech-stack){
+        margin-top: 50px;
         background-color: #ffffffaa;
         --tech-icon-height: 40px;
+    }
+
+    :global(.Service-stats custom-odometer){
+        color: #040E5F;
     }
 </style>
