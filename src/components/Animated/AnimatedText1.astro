@@ -1,22 +1,26 @@
 ---
 const {text = "Animated Text", Tag = 'span'} = Astro.props;
+
+const words = text.split(' ');
 ---
 
 <div class="Animated-text-1" data-text={text} style="visibility: hidden;">
 
     <Tag class="text-wrapper">
         {
-            text.split(' ').map((word, index) => {
+            words.map((word, index) => {
 
-                return <Fragment>
-                    <span class="word">
-                        {
-                            [...word].map(letter => {
-                                return <span class="letter">{letter}</span>;
-                            })
-                        }
-                    </span>
-                </Fragment>            
+                const isLastWord = index === words.length - 1;
+
+                return <span class="word">
+                    {
+                        [...word].map(letter => {
+
+                            return <span class="letter">{letter}</span>;
+                        })
+                    }
+                    {!isLastWord && <span class="letter"> </span>}
+                </span>;           
             })
         }
     </Tag>
