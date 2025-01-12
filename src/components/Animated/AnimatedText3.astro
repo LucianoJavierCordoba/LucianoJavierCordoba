@@ -1,0 +1,128 @@
+---
+const {text = "Text animation with anime.js", delay = 0} = Astro.props;
+
+const words = text.split(" ");
+---
+
+<text-animation-3 class="Text-animation-3" delay={delay}>
+    <span class="caret"></span>
+    {
+        words.map((word, i) => {
+
+            const isLast = i === words.length - 1;
+
+            return (
+                <span class="word">
+                    {
+                        [...word].map((letter) => {
+                            return (
+                                <span class="letter">{letter}</span>
+                            )
+                        })
+                    }
+                    {!isLast && <span class="letter"> </span>}  
+                </span>
+            )
+        })
+    } 
+</text-animation-3>
+
+<script>
+    import anime from 'animejs';
+
+    export class TextAnimation3 extends HTMLElement {
+
+        constructor() {
+            super();
+
+            this.letters = this.querySelectorAll('.letter');
+            this.caret = this.querySelector('.caret');
+            this.delay = Number(this.getAttribute('delay')) || 0;
+
+            this.play();
+        }
+
+        play(){
+            anime.timeline({
+                loop: false,
+            })
+            .add({
+                targets: this,
+                opacity: [0, 1],
+                duration: 500,
+                easing: "easeOutExpo",
+                delay: this.delay
+            })
+            .add({
+                targets: this.letters,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 600,
+                delay: (el, i) => 34 * (i + 1),
+                update: (anim) => {
+                    
+                    const elapsedTime = anim.currentTime;
+            
+                    // Calcular el índice de la letra actual basado en el tiempo transcurrido
+                    const i = Math.floor(elapsedTime / 34);
+            
+                    if (i >= 0 && i < this.letters.length) {
+
+                        const currentLetter = this.letters.item(i);
+
+                        const w = currentLetter.getBoundingClientRect().width;
+
+                        if(currentLetter.textContent.trim() !== ""){
+
+                            this.caret.style.left = `${currentLetter.offsetLeft + currentLetter.offsetWidth + 5}px`;
+                            this.caret.style.top = `${currentLetter.offsetTop}px`;
+                        }
+
+                    } 
+                }
+            })
+            .add({
+                targets: this.caret,
+                opacity: 0,
+                duration: 500,
+                easing: "easeOutExpo",
+                delay: 200
+            });
+        }
+    }
+    
+    customElements.define('text-animation-3', TextAnimation3);
+
+</script>
+
+<style>
+    .Text-animation-3 {
+        display: inline-block;
+
+        padding-top: 0.2em;
+        padding-right: 0.05em;
+        padding-bottom: 0.1em;
+
+        position: relative;
+        white-space: normal;
+
+        .caret {
+            opacity: 1;
+            display: inline-block;
+            height: 1.2em;
+            width: 3px;
+            background-color: var(--text-animation-caret-color, #fff);
+            position: absolute;
+            transform-origin: 100% 50%;
+        }
+
+        .word {
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
+    }
+</style>
