@@ -15,6 +15,7 @@ import Contact from "@/components/home/Contact.astro";
 import AboutService from "@/components/home/AboutService.astro";
 import { NAME } from "@/config";
 import AnimatedText3 from "@/components/Animated/AnimatedText3.astro";
+import ZohoSalesIQ from "@/components/ZohoSalesIQ.astro";
 
 
 const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
@@ -51,6 +52,8 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
 
     <Contact />
 
+    <ZohoSalesIQ slot="scripts" />
+
 </Layout>
 
 <style>
@@ -59,13 +62,14 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
         color: #fff;
         --text-animation-caret-color: #fff;
         font-weight: bolder;
-        font-size: clamp(50px, 5vw, 80px);
-        text-align: center;
+        font-size: clamp(40px, 5vw, 60px);
+        text-align: left;
         max-width: 25ch;
         text-shadow: 0px 8px 5px #00000020;
         letter-spacing: 5px;
         line-height: 1.5;
-
+        font-family: "Aeonik-Pro-Bold";
+        text-transform: uppercase;
         
         @media (max-width: 767.98px){
             max-width: 30ch;
@@ -73,13 +77,12 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
     }
     .banner-subtitle {
         margin-top: auto;
-        max-width: 30ch;
         color: #0555bc;
         --text-animation-caret-color: #0555bc;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         font-family: var(--title-font);
-        font-size: clamp(18px, 3vw, 35px);
+        font-size: clamp(16px, 3vw, 25px);
         /* text-shadow: 0px 8px 5px #00000020; */
         letter-spacing: 1px;
         line-height: 1.8;
@@ -106,7 +109,7 @@ const LANG = LANGUAGES.get(Astro.currentLocale)?.banner_home;
         
         .Banner-content {
             --banner-content-padding: 30px 50px 80px 50px;
-            align-items: center;
+            align-items: start;
             max-width: 60vw;
             gap: 30px;
         }
